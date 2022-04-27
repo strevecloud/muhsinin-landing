@@ -130,8 +130,8 @@
                                     </div>
 
                                     <div class="btn-wrap">
-                                        <a href="{{ route('package.show',1) }}" class="button-text width-6">Book Now<i class="fas fa-arrow-right"></i></a>
-                                        <a href="#" class="button-text width-6">Wish List<i class="far fa-heart"></i></a>
+                                        <a href="{{ route('booking.index') }}" class="button-text width-6">Booking<i class="fas fa-arrow-right"></i></a>
+                                        <a href="{{ route('package.show',1) }}" class="button-text width-6">Lihat Detail<i class="fas fa-arrow-right"></i></a>
                                     </div>
                                 </div>
                             </div>
@@ -249,8 +249,8 @@
                                     </div>
 
                                     <div class="btn-wrap">
-                                        <a href="{{ route('package.show',1) }}" class="button-text width-6">Book Now<i class="fas fa-arrow-right"></i></a>
-                                        <a href="#" class="button-text width-6">Wish List<i class="far fa-heart"></i></a>
+                                        <a href="{{ route('booking.index') }}" class="button-text width-6">Booking<i class="fas fa-arrow-right"></i></a>
+                                        <a href="{{ route('package.show',1) }}" class="button-text width-6">Lihat Detail<i class="fas fa-arrow-right"></i></a>
                                     </div>
                                 </div>
                             </div>
@@ -366,8 +366,8 @@
                                         <hr class="hr-package">
                                     </div>
                                     <div class="btn-wrap">
-                                        <a href="{{ route('package.show',1) }}" class="button-text width-6">Book Now<i class="fas fa-arrow-right"></i></a>
-                                        <a href="#" class="button-text width-6">Wish List<i class="far fa-heart"></i></a>
+                                        <a href="{{ route('booking.index') }}" class="button-text width-6">Booking<i class="fas fa-arrow-right"></i></a>
+                                        <a href="{{ route('package.show',1) }}" class="button-text width-6">Lihat Detail<i class="fas fa-arrow-right"></i></a>
                                     </div>
                                 </div>
                             </div>

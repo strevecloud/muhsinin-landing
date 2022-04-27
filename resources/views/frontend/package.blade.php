@@ -68,22 +68,22 @@
                         </div>
                     </div>
                     <div class="row col-lg-8">
-                        <div class="col-lg-12 button-filter text-center">
-                            <div class="btn-group btn-group-toggle" data-toggle="buttons">
-                                <label class="btn btn-md btn-outline-secondary active">
-                                    <input type="radio" name="options" id="option1" autocomplete="off" checked> Semua Kategori (35)
-                                </label>
-                                <label class="btn btn-md btn-outline-secondary">
-                                    <input type="radio" name="options" id="option2" autocomplete="off"> Umroh Reguler (34)
-                                </label>
-                                <label class="btn btn-md btn-outline-secondary">
-                                    <input type="radio" name="options" id="option3" autocomplete="off"> Umroh Plus Wisata (0)
-                                </label>
-                                <label class="btn btn-md btn-outline-secondary">
-                                    <input type="radio" name="options" id="option3" autocomplete="off"> Halal Trip (1)
-                                </label>
-                            </div>
-                        </div>
+                        {{--<div class="col-lg-12 button-filter text-center">--}}
+                            {{--<div class="btn-group btn-group-toggle" data-toggle="buttons">--}}
+                                {{--<label class="btn btn-md btn-outline-secondary active">--}}
+                                    {{--<input type="radio" name="options" id="option1" autocomplete="off" checked> Semua Kategori (35)--}}
+                                {{--</label>--}}
+                                {{--<label class="btn btn-md btn-outline-secondary">--}}
+                                    {{--<input type="radio" name="options" id="option2" autocomplete="off"> Umroh Reguler (34)--}}
+                                {{--</label>--}}
+                                {{--<label class="btn btn-md btn-outline-secondary">--}}
+                                    {{--<input type="radio" name="options" id="option3" autocomplete="off"> Umroh Plus Wisata (0)--}}
+                                {{--</label>--}}
+                                {{--<label class="btn btn-md btn-outline-secondary">--}}
+                                    {{--<input type="radio" name="options" id="option3" autocomplete="off"> Halal Trip (1)--}}
+                                {{--</label>--}}
+                            {{--</div>--}}
+                        {{--</div>--}}
                         <div class="col-lg-6 col-md-6">
                             <div class="package-wrap">
                                 <figure class="feature-image">
@@ -198,8 +198,8 @@
                                         </div>
 
                                         <div class="btn-wrap">
-                                            <a href="#" class="button-text width-6">Book Now<i class="fas fa-arrow-right"></i></a>
-                                            <a href="#" class="button-text width-6">Wish List<i class="far fa-heart"></i></a>
+                                            <a href="{{ route('booking.index') }}" class="button-text width-6">Booking<i class="fas fa-arrow-right"></i></a>
+                                            <a href="{{ route('package.show',1) }}" class="button-text width-6">Lihat Detail<i class="fas fa-arrow-right"></i></a>
                                         </div>
                                     </div>
                                 </div>
@@ -317,8 +317,8 @@
                                         </div>
 
                                         <div class="btn-wrap">
-                                            <a href="#" class="button-text width-6">Book Now<i class="fas fa-arrow-right"></i></a>
-                                            <a href="#" class="button-text width-6">Wish List<i class="far fa-heart"></i></a>
+                                            <a href="{{ route('booking.index') }}" class="button-text width-6">Booking<i class="fas fa-arrow-right"></i></a>
+                                            <a href="{{ route('package.show',1) }}" class="button-text width-6">Lihat Detail<i class="fas fa-arrow-right"></i></a>
                                         </div>
                                     </div>
                                 </div>
@@ -434,8 +434,8 @@
                                             <hr class="hr-package">
                                         </div>
                                         <div class="btn-wrap">
-                                            <a href="#" class="button-text width-6">Book Now<i class="fas fa-arrow-right"></i></a>
-                                            <a href="#" class="button-text width-6">Wish List<i class="far fa-heart"></i></a>
+                                            <a href="{{ route('booking.index') }}" class="button-text width-6">Booking<i class="fas fa-arrow-right"></i></a>
+                                            <a href="{{ route('package.show',1) }}" class="button-text width-6">Lihat Detail<i class="fas fa-arrow-right"></i></a>
                                         </div>
                                     </div>
                                 </div>
@@ -551,8 +551,8 @@
                                             <hr class="hr-package">
                                         </div>
                                         <div class="btn-wrap">
-                                            <a href="#" class="button-text width-6">Book Now<i class="fas fa-arrow-right"></i></a>
-                                            <a href="#" class="button-text width-6">Wish List<i class="far fa-heart"></i></a>
+                                            <a href="{{ route('booking.index') }}" class="button-text width-6">Booking<i class="fas fa-arrow-right"></i></a>
+                                            <a href="{{ route('package.show',1) }}" class="button-text width-6">Lihat Detail<i class="fas fa-arrow-right"></i></a>
                                         </div>
                                     </div>
                                 </div>

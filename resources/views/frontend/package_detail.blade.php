@@ -232,7 +232,7 @@
                                             <label for="formGroupExampleInput">Tipe Kamar</label>
                                             <div class="input-group-prepend">
                                                 <div class="input-group-text"><i class="fa fa-xs fa-bed"></i></div>
-                                                <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Example input">
+                                                <input type="text" value="Quad" class="form-control" id="formGroupExampleInput" placeholder="Example input">
                                             </div>
                                         </div>
                                     </div>
@@ -241,13 +241,15 @@
                                             <label for="formGroupExampleInput">Maksimal Jammah</label>
                                             <div class="input-group-prepend">
                                                 <div class="input-group-text"><i class="fa fa-xs fa-user-friends"></i></div>
-                                                <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Example input">
+                                                <input type="text" class="form-control" value="4" id="formGroupExampleInput" placeholder="Example input">
                                             </div>
                                         </div>
                                     </div>
                                     <div class="col-sm-12 text-center">
                                         <div class="form-group submit-btn">
-                                            <input type="submit" name="submit" value="Pesan Sekarang">
+                                            <div class="text-center">
+                                                <a href="{{ route('booking.index') }}" class="button-primary">Booking</a>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
