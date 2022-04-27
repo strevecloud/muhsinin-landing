@@ -4,21 +4,48 @@
     <div class="container">
         <div class="trip-search-inner white-bg d-flex">
             <div class="input-group col-md-3">
-                <label> Lokasi Keberangkatan* </label>
-                <input type="text" name="s" placeholder="Enter Destination">
+                <div class="col-sm-12">
+                    <div class="form-group">
+                        <label> Lokasi Keberangkatan* </label>
+
+                        <select class="form-control" name="country" id="country">
+                            <option value="" selected="">Jakarta</option>
+                            <option value="Europe">Makassar</option>
+                            <option value="United states">Solo</option>
+                            <option value="Asia">Surabaya</option>
+                        </select>
+                    </div>
+                </div>
             </div>
             <div class="input-group col-md-3">
-                <label> Jumlah Jamaah* </label>
-                <input type="text" name="s" placeholder="No.of People">
+                <div class="col-sm-12">
+                    <div class="form-group">
+                        <label> Tipe Kamar* </label>
+                        <select class="form-control" name="country" id="country">
+                            <option value="" selected="">Single</option>
+                            <option value="Europe">Double</option>
+                            <option value="United states">Triple</option>
+                            <option value="Asia">Quad</option>
+                        </select>
+                    </div>
+                </div>
             </div>
             <div class="input-group col-md-3">
-                <label> Waktu Keberangkatan* </label>
-                <i class="far fa-calendar"></i>
-                <input class="input-date-picker" type="text" name="s" placeholder="MM / DD / YY" autocomplete="off" readonly="readonly">
+                <div class="col-sm-12">
+                    <div class="form-group">
+                        <label> Waktu Keberangkatan* </label>
+                        <i class="far fa-calendar"></i>
+                        <input class="input-date-picker" type="text" name="s" placeholder="MM / DD / YY" autocomplete="off" readonly="readonly">
+                    </div>
+                </div>
             </div>
             <div class="input-group col-md-3">
-                <label class="screen-reader-text"> Search </label>
-                <input type="submit" name="travel-search" value="Cari Paket Umroh">
+                <div class="col-sm-12">
+                    <div class="form-group">
+                        <label class="screen-reader-text"> Search </label>
+                        <input type="submit" name="travel-search" value="Cari Paket Umroh">
+                    </div>
+                </div>
             </div>
         </div>
     </div>

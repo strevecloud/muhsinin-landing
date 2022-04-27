@@ -29,7 +29,12 @@
                                                 <label for="formGroupExampleInput">Kota Keberangkatan</label>
                                                 <div class="input-group-prepend">
                                                     <div class="input-group-text"><i class="fa fa-xs fa-location-arrow"></i></div>
-                                                    <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Example input">
+                                                    <select class="form-control" name="country" id="country">
+                                                        <option value="" selected="">Jakarta</option>
+                                                        <option value="Europe">Makassar</option>
+                                                        <option value="United states">Solo</option>
+                                                        <option value="Asia">Surabaya</option>
+                                                    </select>
                                                 </div>
                                             </div>
                                         </div>
@@ -47,7 +52,12 @@
                                                 <label for="formGroupExampleInput">Tipe Kamar</label>
                                                 <div class="input-group-prepend">
                                                     <div class="input-group-text"><i class="fa fa-xs fa-bed"></i></div>
-                                                    <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Example input">
+                                                    <select class="form-control" name="country" id="country">
+                                                        <option value="" selected="">Single</option>
+                                                        <option value="Europe">Double</option>
+                                                        <option value="United states">Triple</option>
+                                                        <option value="Asia">Quad</option>
+                                                    </select>
                                                 </div>
                                             </div>
                                         </div>
