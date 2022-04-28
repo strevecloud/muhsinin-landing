@@ -8538,4 +8538,20 @@ h4.package-price > span {
     display: none;
 }
 
+th.prev {
+    background-color: white;
+}
+
+th.datepicker-switch {
+    background-color: white;
+}
+
+th.next {
+    background-color: white;
+}
+
+span.month {
+    color: black;
+}
+
 /*# sourceMappingURL=style.css.map */

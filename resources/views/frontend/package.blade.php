@@ -43,7 +43,7 @@
                                                 <label for="formGroupExampleInput">Jadwal Keberangkatan</label>
                                                 <div class="input-group-prepend">
                                                     <div class="input-group-text"><i class="fa fa-xs fa-calendar"></i></div>
-                                                    <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Example input">
+                                                    <input class="input-date-picker date-picker" name="datepicker" id="datepicker" type="text" name="s" placeholder="MM-YY" autocomplete="off" readonly="readonly">
                                                 </div>
                                             </div>
                                         </div>
@@ -68,12 +68,6 @@
                                         </div>
                                     </div>
                                 </form>
-                            </div>
-                            <div class="widget-bg information-content text-center">
-                                <h5>Tips Pencarian Paket</h5>
-                                <h3>NEED TRAVEL RELATED TIPS & INFORMATION</h3>
-                                <p>Mollit voluptatem perspiciatis convallis elementum corporis quo veritatis aliquid blandit, blandit torquent, odit placeat. </p>
-                                <a href="#" class="button-primary">GET A QUOTE</a>
                             </div>
                         </div>
                     </div>

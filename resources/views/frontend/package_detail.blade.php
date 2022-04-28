@@ -255,12 +255,7 @@
                                 </div>
                             </form>
                         </div>
-                        <div class="widget-bg information-content text-center">
-                            <h5>TRAVEL TIPS</h5>
-                            <h3>NEED TRAVEL RELATED TIPS & INFORMATION</h3>
-                            <p>Mollit voluptatem perspiciatis convallis elementum corporis quo veritatis aliquid blandit, blandit torquent, odit placeat. </p>
-                            <a href="#" class="button-primary">GET A QUOTE</a>
-                        </div>
+
                     </div>
                 </div>
             </div>

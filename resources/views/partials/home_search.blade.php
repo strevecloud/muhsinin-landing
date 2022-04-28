@@ -35,7 +35,7 @@
                     <div class="form-group">
                         <label> Waktu Keberangkatan* </label>
                         <i class="far fa-calendar"></i>
-                        <input class="input-date-picker" type="text" name="s" placeholder="MM / DD / YY" autocomplete="off" readonly="readonly">
+                        <input class="input-date-picker date-picker" name="datepicker" id="datepicker" type="text" name="s" placeholder="MM-YY" autocomplete="off" readonly="readonly">
                     </div>
                 </div>
             </div>

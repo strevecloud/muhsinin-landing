@@ -18,11 +18,11 @@
             </div>
             <div class="col-md-2 text-center">
                 <div class="footer-logo">
-                    <a href="#"><img src="{{ asset('assets/images/travele-logo.png')}}" alt=""></a>
+                    <a href="#"><img src="{{ asset('assets/images/muhsinin-logo-white.png')}}" alt=""></a>
                 </div>
             </div>
             <div class="col-md-5">
-                <div class="copy-right text-right">Copyright © 2021 Travele. All rights reserveds</div>
+                <div class="copy-right text-right">Copyright © 2022 Muhsinin Travel. All rights reserveds</div>
             </div>
         </div>
     </div>

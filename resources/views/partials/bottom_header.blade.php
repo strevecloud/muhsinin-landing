@@ -3,7 +3,7 @@
         <div class="site-identity">
             <h1 class="site-title">
                 <a href="/">
-                    <img src="{{ asset('assets/images/travele-logo.png')}}" alt="logo">
+                    <img src="{{ asset('assets/images/muhsinin-logo-white.png')}}" alt="logo">
                 </a>
             </h1>
         </div>

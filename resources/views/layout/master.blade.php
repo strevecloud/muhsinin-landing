@@ -22,6 +22,7 @@
     {!! Html::style('assets/vendors/slick/slick-theme.css') !!}
     <!-- google fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,400&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.2.0/css/datepicker.min.css" rel="stylesheet">
     <!-- Custom CSS -->
     {!! Html::style('assets/css/style.css') !!}
     <title>Travele | Travel & Tour HTML5 template </title>
@@ -77,6 +78,7 @@
 {!! Html::script('assets/vendors/lightbox/dist/js/lightbox.min.js') !!}
 {!! Html::script('assets/vendors/slick/slick.min.js') !!}
 {!! Html::script('assets/js/jquery.slicknav.js') !!}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.2.0/js/bootstrap-datepicker.min.js"></script>
 {!! Html::script('assets/js/custom.js') !!}
 @yield('script')
 </body>
