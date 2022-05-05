@@ -8553,5 +8553,16 @@ th.next {
 span.month {
     color: black;
 }
+div[id$="-error"] {
+    color: red;
+}
 
+.form-control[readonly] {
+    background-color: #ffffff !important;
+    opacity: 1;
+}
+
+.text-sm-bold{
+    font-weight: 500;
+}
 /*# sourceMappingURL=style.css.map */

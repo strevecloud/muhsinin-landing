@@ -9,7 +9,7 @@ use App\Repositories\MasterOfficeRepository;
 use App\Repositories\ViewPackagesRepository;
 use App\Repositories\PackageBookingRepository;
 
-class BookingController extends Controller
+class SearchController extends Controller
 {
     protected $roomRepository,$officeRepository,$packageDetailRepository,$viewPackagesRepository,$packageBookingRepository;
     public function __construct()
@@ -25,9 +25,27 @@ class BookingController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        return view('frontend/booking');
+        $results = [];
+        $booking = [];
+        $countBooking = 0;
+
+        if($request->has('search')){
+            $code = $request->get('search');
+            $booking[] = $this->packageBookingRepository->getByCode($code);
+
+            if(!$booking[0]){
+                $booking = $this->packageBookingRepository->getBookingByPhoneNumber($code);
+            }
+
+            if($booking){
+                $results = $booking;
+                $countBooking = count($booking);
+            }
+        }
+
+        return view('frontend/search',compact('results','countBooking'));
     }
 
     /**

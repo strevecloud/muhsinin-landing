@@ -171,8 +171,8 @@
                 {{--</ul>--}}
             {{--</nav>--}}
         {{--</div>--}}
-        {{--<div class="header-btn">--}}
-            {{--<a href="#" class="button-primary">BOOK NOW</a>--}}
-        {{--</div>--}}
+        <div class="header-btn">
+            <a href="{{ route('search.index') }}" class="button-primary">Pencarian</a>
+        </div>
     </div>
 </div>

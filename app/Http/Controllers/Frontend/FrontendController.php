@@ -4,17 +4,42 @@ namespace App\Http\Controllers\Frontend;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Repositories\MasterRoomRepository;
+use App\Repositories\MasterOfficeRepository;
+use App\Repositories\ViewPackagesRepository;
 
 class FrontendController extends Controller
 {
+
+    protected $roomRepository,$officeRepository,$packageDetailRepository,$viewPackagesRepository;
+    public function __construct()
+    {
+        $this->roomRepository = new MasterRoomRepository();
+        $this->officeRepository = new MasterOfficeRepository();
+        $this->viewPackagesRepository = new ViewPackagesRepository();
+    }
+
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        return view('frontend/index');
+        $req = $request->all();
+        $packages = null;
+
+        if($request->exists('departure_date')){
+            $packages = $this->viewPackagesRepository->filterSearch($request)->get();
+        }else{
+            $packages = $this->viewPackagesRepository->getAll();
+        }
+
+//        dd($req);
+        $rooms = $this->roomRepository->masterRoomAll();
+        $offices = $this->officeRepository->masterOfficeAll();
+        $packageDetails = $this->officeRepository->masterOfficeAll();
+        return view('frontend/index',compact('rooms','offices','packageDetails','packages'));
     }
 
     public function packageDetail()

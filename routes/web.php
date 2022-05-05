@@ -18,7 +18,17 @@ Route::get('/', array(
     'uses'  => 'Frontend\FrontendController@index'
 ));
 
+Route::post('/', array(
+    'as'    => 'index',
+    'uses'  => 'Frontend\FrontendController@index'
+));
+
 Route::get('/package', array(
+    'as'    => 'package.index',
+    'uses'  => 'Frontend\PackageController@index'
+));
+
+Route::post('/package', array(
     'as'    => 'package.index',
     'uses'  => 'Frontend\PackageController@index'
 ));
@@ -28,7 +38,27 @@ Route::get('/package/detail/{id}', array(
     'uses'  => 'Frontend\PackageController@show'
 ));
 
-Route::get('/booking', array(
-    'as'    => 'booking.index',
-    'uses'  => 'Frontend\BookingController@index'
+Route::get('/booking/{id}', array(
+    'as'    => 'booking.show',
+    'uses'  => 'Frontend\BookingController@show'
+));
+
+Route::get('/booking/detail/{code}', array(
+    'as'    => 'booking.detail',
+    'uses'  => 'Frontend\BookingController@detail'
+));
+
+Route::get('/booking/info/{id}', array(
+    'as'    => 'booking.info',
+    'uses'  => 'Frontend\BookingController@info'
+));
+
+Route::post('/booking/store/{id}', array(
+    'as'    => 'booking.store',
+    'uses'  => 'Frontend\BookingController@store'
+));
+
+Route::get('/search', array(
+    'as'    => 'search.index',
+    'uses'  => 'Frontend\SearchController@index'
 ));

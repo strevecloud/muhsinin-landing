@@ -68,6 +68,7 @@
 
 <!-- JavaScript -->
 {!! Html::script('assets/js/jquery.js') !!}
+{!! Html::script('assets/js/jquery.validate.js') !!}
 <script src="http://cdnjs.cloudflare.com/ajax/libs/waypoints/2.0.3/waypoints.min.js"></script>
 {!! Html::script('assets/vendors/bootstrap/js/bootstrap.min.js') !!}
 {!! Html::script('assets/vendors/jquery-ui/jquery-ui.min.js') !!}
@@ -81,5 +82,72 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.2.0/js/bootstrap-datepicker.min.js"></script>
 {!! Html::script('assets/js/custom.js') !!}
 @yield('script')
+
+<script>
+    $(document).ready(function(){
+        $("#myForm").validate({ errorElement: 'div' });
+        $('.first_name').each(function () {
+            console.log(this);
+            $(this).rules('add', {
+                required: true,
+                messages: {
+                    required: "Nama depan harus diisi.",
+                }
+            })
+        });
+        $('.last_name').each(function () {
+            $(this).rules('add', {
+                required: true,
+                messages: {
+                    required: "Nama belakang harus diisi.",
+                }
+            })
+        });
+
+        $('.gender').each(function () {
+            $(this).rules('add', {
+                required: true,
+                messages: {
+                    required: "Jenis kelamin harus diisi.",
+                }
+            })
+        });
+
+        $('.nik_number').each(function () {
+            $(this).rules('add', {
+                required: true,
+                messages: {
+                    required: "Nomor KTP harus diisi.",
+                }
+            })
+        });
+
+        $('.phone_number').each(function () {
+            $(this).rules('add', {
+                required: true,
+                messages: {
+                    required: "Nomor HP harus diisi.",
+                }
+            })
+        });
+
+        $('.relation_type').each(function () {
+            $(this).rules('add', {
+                required: true,
+                messages: {
+                    required: "Hubungan mahram/pendamping harus diisi.",
+                }
+            })
+        });
+
+
+        $(document).on('click','#submit-booking',function(e){
+            let valid = $("#myForm").valid();
+            if(valid){
+                $('#myForm').submit();
+            }
+        });
+    });
+</script>
 </body>
 </html>

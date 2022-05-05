@@ -4,17 +4,42 @@ namespace App\Http\Controllers\Frontend;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Repositories\MasterRoomRepository;
+use App\Repositories\MasterOfficeRepository;
+use App\Repositories\ViewPackagesRepository;
+use Illuminate\Pagination\LengthAwarePaginator;
 
 class PackageController extends Controller
 {
+
+    protected $roomRepository,$officeRepository,$packageDetailRepository,$viewPackagesRepository;
+    public function __construct()
+    {
+        $this->roomRepository = new MasterRoomRepository();
+        $this->officeRepository = new MasterOfficeRepository();
+        $this->viewPackagesRepository = new ViewPackagesRepository();
+    }
+
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        return view('frontend/package');
+        $packages = null;
+
+        if($request->exists('city_branch')){
+            $packages = $this->viewPackagesRepository->filterSearch($request)->simplePaginate(6)->withQueryString();
+
+        }else{
+            $packages = $this->viewPackagesRepository->getAll();
+        }
+
+        $rooms = $this->roomRepository->masterRoomAll();
+        $offices = $this->officeRepository->masterOfficeAll();
+
+        return view('frontend/package', compact('packages','rooms','offices'));
     }
 
     /**
@@ -46,7 +71,8 @@ class PackageController extends Controller
      */
     public function show($id)
     {
-        return view('frontend/package_detail');
+        $package = $this->viewPackagesRepository->getByBranchPackageDetailId($id);
+        return view('frontend/package_detail', compact('package'));
     }
 
     /**
