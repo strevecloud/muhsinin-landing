@@ -292,18 +292,6 @@
                                 </tr>
                                 <tr>
                                     <td>
-                                        <strong>Pembiayaan</strong>
-                                    </td>
-                                    <td class="text-right">
-                                        <select class="form-control gender" name="data[0][gender]" id="gender">
-                                            <option value="" selected="">Pilih Jenis Kelamin</option>
-                                            <option value="M">Pria</option>
-                                            <option value="F">Wanita</option>
-                                        </select>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
                                         <strong>Jumlah Jamaah</strong>
                                     </td>
                                     <td class="text-right">
