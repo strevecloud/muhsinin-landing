@@ -15,6 +15,7 @@
                 </div>
             </div>
             <div class="package-inner">
+                @if(count($packages) > 0)
                 <div class="row">
 
                     @foreach($packages as $package)
@@ -22,8 +23,7 @@
                         <div class="package-wrap">
                             <figure class="feature-image">
                                 <a href="{{ route('package.show',[$package->branch_package_detail_id]) }}">
-                                    <img src="{{ asset('assets/images/umrah-sample1.jpeg')}}" alt="">
-                                    {{--<img src="{{ getenv('S3_BUCKET_URL').$package->basic_package_photos }}" alt="">--}}
+                                    <img src="{{ getImageUrl($package->basic_package_photos)}}" alt="">
                                 </a>
                             </figure>
                             <div class="package-price">
@@ -378,6 +378,11 @@
                         {{--</div>--}}
                     {{--</div>--}}
                 </div>
+                @else
+                    <div class="booking-content text-center">
+                        <p class="text-center">Data tidak ditemukan</p>
+                    </div>
+                @endif
                 <div class="btn-wrap text-center">
                     <a href="{{ route('package.index') }}" class="button-primary">Lihat Semua Paket</a>
                 </div>

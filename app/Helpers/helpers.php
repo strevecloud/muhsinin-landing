@@ -187,6 +187,21 @@ if (! function_exists('getImageUserLogin')) {
     }
 }
 
+if (! function_exists('getImageUrl')) {
+    function getImageUrl($imageUrl)
+    {
+        $defaultImage = asset('assets/images/umrah-sample1.jpeg');
+
+        if(getenv('IMAGE_FROM_DB') == true){
+            $url = getenv('S3_BUCKET_URL').$imageUrl;
+        }else{
+            $url = $defaultImage;
+        }
+
+        return $url;
+    }
+}
+
 if (! function_exists('setMenuActive')) {
     function setMenuActive($routeName)
     {

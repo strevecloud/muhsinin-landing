@@ -29,6 +29,10 @@
                                         <td>{{ $booking->booking_code }}</td>
                                     </tr>
                                     <tr>
+                                        <td>Tipe Pembayaran:</td>
+                                        <td>{{ ucFirst($booking->paymentType->name) }}</td>
+                                    </tr>
+                                    <tr>
                                         <td>Waktu Keberangkatan:</td>
                                         <td>{{ getDateIndo($package->basic_package_depature_date) }}</td>
                                     </tr>

@@ -78,129 +78,135 @@
                                 {{--</label>--}}
                             {{--</div>--}}
                         {{--</div>--}}
-                        @foreach($packages as $package)
-                        <div class="col-lg-6 col-md-6">
-                            <div class="package-wrap">
-                                <figure class="feature-image">
-                                    <a href="{{ route('package.show',[$package->branch_package_detail_id]) }}">
-                                        <img src="{{ asset('assets/images/umrah-sample1.jpeg')}}" alt="">
-                                    </a>
-                                </figure>
-                                <div class="package-price">
-                                    <h6>
-                                        <span>Rp {{ get_currency($package->branch_package_detail_selling_price) }} </span> / per orang
-                                    </h6>
-                                </div>
-                                <div class="package-content-wrap">
-                                    <div class="package-meta text-center">
-                                        <ul>
-                                            <li>
-                                                <i class="fas fa-calendar"></i>
-                                                {{ getDateIndoShort($package->basic_package_depature_date) }}
-                                            </li>
-                                            <li>
-                                                <i class="fa fa-bed"></i>
-                                                {{ $package->master_room_name }}
-                                            </li>
-                                            <li>
-                                                <i class="fas fa-map-marker-alt"></i>
-                                                {{ $package->master_office_name }}
-                                            </li>
-                                        </ul>
+                        @if($packages->count() > 0)
+                            @foreach($packages as $package)
+                            <div class="col-lg-6 col-md-6">
+                                <div class="package-wrap">
+                                    <figure class="feature-image">
+                                        <a href="{{ route('package.show',[$package->branch_package_detail_id]) }}">
+                                            <img src="{{ asset('assets/images/umrah-sample1.jpeg')}}" alt="">
+                                        </a>
+                                    </figure>
+                                    <div class="package-price">
+                                        <h6>
+                                            <span>Rp {{ get_currency($package->branch_package_detail_selling_price) }} </span> / per orang
+                                        </h6>
                                     </div>
-                                    <div class="package-content text-center">
-                                        <h3>
-                                            <a href="{{ route('package.show',1) }}">{{ $package->basic_package_name }}</a>
-                                        </h3>
-                                        <hr class="hr-package">
-                                        {{--<div class="review-area">--}}
-                                        {{--<span class="review-text">(25 reviews)</span>--}}
-                                        {{--<div class="rating-start" title="Rated 5 out of 5">--}}
-                                        {{--<span style="width: 60%"></span>--}}
-                                        {{--</div>--}}
-                                        {{--</div>--}}
-                                        {{--<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit luctus nec ullam. Ut elit tellus, luctus nec ullam elit tellpus.</p>--}}
-
-                                        <div class="col-md-12">
-                                            <div class="row">
-                                                <div class="col-sm text-left">
-                                                    <span class="text-sm"><i class="fa fa-xs fa-calendar"></i> Berangkat</span>
-                                                </div>
-                                                <div class="col-sm text-right">
-                                                    <span>{{ getDateIndoShort($package->basic_package_depature_date) }}</span>
-                                                </div>
-                                            </div>
-
+                                    <div class="package-content-wrap">
+                                        <div class="package-meta text-center">
+                                            <ul>
+                                                <li>
+                                                    <i class="fas fa-calendar"></i>
+                                                    {{ getDateIndoShort($package->basic_package_depature_date) }}
+                                                </li>
+                                                <li>
+                                                    <i class="fa fa-bed"></i>
+                                                    {{ $package->master_room_name }}
+                                                </li>
+                                                <li>
+                                                    <i class="fas fa-map-marker-alt"></i>
+                                                    {{ $package->master_office_name }}
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <div class="package-content text-center">
+                                            <h3>
+                                                <a href="{{ route('package.show',1) }}">{{ $package->basic_package_name }}</a>
+                                            </h3>
                                             <hr class="hr-package">
+                                            {{--<div class="review-area">--}}
+                                            {{--<span class="review-text">(25 reviews)</span>--}}
+                                            {{--<div class="rating-start" title="Rated 5 out of 5">--}}
+                                            {{--<span style="width: 60%"></span>--}}
+                                            {{--</div>--}}
+                                            {{--</div>--}}
+                                            {{--<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit luctus nec ullam. Ut elit tellus, luctus nec ullam elit tellpus.</p>--}}
 
-                                            <div class="row">
-                                                <div class="col-sm text-left">
-                                                    <span class="text-sm"><i class="fa fa-xs fa-stopwatch"></i> Durasi</span>
-                                                </div>
-                                                <div class="col-sm text-right">
-                                                    <span>{{ $package->basic_package_duration }}</span>
-                                                </div>
-                                            </div>
-
-                                            <hr class="hr-package">
-
-                                            <div class="row">
-                                                <div class="col-sm text-left">
-                                                    <span class="text-sm"><i class="fa fa-xs fa-location-arrow"></i> Kota</span>
-                                                </div>
-                                                <div class="col-sm text-right">
-                                                    <span>{{ $package->master_office_name }}</span>
-                                                </div>
-                                            </div>
-
-                                            <hr class="hr-package">
-
-
-                                            <div class="row">
-                                                <div class="col-sm text-left">
-                                                    <span class="text-sm"><i class="fa fa-xs fa-plane"></i> Maskapai</span>
-                                                </div>
-                                                <div class="col-sm text-right">
-                                                    <span>{{ $package->master_airline_name }}</span>
-                                                </div>
-                                            </div>
-
-                                            <hr class="hr-package">
-
-                                            <div class="row">
-                                                <div class="col-sm text-left">
-                                                    <span class="text-sm"><i class="fa fa-xs fa-bed"></i> Kamar</span>
-                                                </div>
-                                                <div class="col-sm text-right">
-                                                    <span>{{ $package->master_room_name }}</span>
-                                                </div>
-                                            </div>
-
-                                            <hr class="hr-package">
-
-                                            <div class="row">
-                                                <div class="col-sm text-left">
-                                                    <span class="text-sm"><i class="fa fa-xs fa-hotel"></i> Hotel</span>
-                                                </div>
-                                                <div class="col-sm text-right">
-                                                    <div class="rating-start" title="Rated 5 out of 5">
-                                                        <span style="width: 60%"></span>
+                                            <div class="col-md-12">
+                                                <div class="row">
+                                                    <div class="col-sm text-left">
+                                                        <span class="text-sm"><i class="fa fa-xs fa-calendar"></i> Berangkat</span>
+                                                    </div>
+                                                    <div class="col-sm text-right">
+                                                        <span>{{ getDateIndoShort($package->basic_package_depature_date) }}</span>
                                                     </div>
                                                 </div>
+
+                                                <hr class="hr-package">
+
+                                                <div class="row">
+                                                    <div class="col-sm text-left">
+                                                        <span class="text-sm"><i class="fa fa-xs fa-stopwatch"></i> Durasi</span>
+                                                    </div>
+                                                    <div class="col-sm text-right">
+                                                        <span>{{ $package->basic_package_duration }}</span>
+                                                    </div>
+                                                </div>
+
+                                                <hr class="hr-package">
+
+                                                <div class="row">
+                                                    <div class="col-sm text-left">
+                                                        <span class="text-sm"><i class="fa fa-xs fa-location-arrow"></i> Kota</span>
+                                                    </div>
+                                                    <div class="col-sm text-right">
+                                                        <span>{{ $package->master_office_name }}</span>
+                                                    </div>
+                                                </div>
+
+                                                <hr class="hr-package">
+
+
+                                                <div class="row">
+                                                    <div class="col-sm text-left">
+                                                        <span class="text-sm"><i class="fa fa-xs fa-plane"></i> Maskapai</span>
+                                                    </div>
+                                                    <div class="col-sm text-right">
+                                                        <span>{{ $package->master_airline_name }}</span>
+                                                    </div>
+                                                </div>
+
+                                                <hr class="hr-package">
+
+                                                <div class="row">
+                                                    <div class="col-sm text-left">
+                                                        <span class="text-sm"><i class="fa fa-xs fa-bed"></i> Kamar</span>
+                                                    </div>
+                                                    <div class="col-sm text-right">
+                                                        <span>{{ $package->master_room_name }}</span>
+                                                    </div>
+                                                </div>
+
+                                                <hr class="hr-package">
+
+                                                <div class="row">
+                                                    <div class="col-sm text-left">
+                                                        <span class="text-sm"><i class="fa fa-xs fa-hotel"></i> Hotel</span>
+                                                    </div>
+                                                    <div class="col-sm text-right">
+                                                        <div class="rating-start" title="Rated 5 out of 5">
+                                                            <span style="width: 60%"></span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <hr class="hr-package">
                                             </div>
 
-                                            <hr class="hr-package">
-                                        </div>
-
-                                        <div class="btn-wrap">
-                                            <a href="{{ route('booking.show',[$package->branch_package_detail_id]) }}" class="button-text width-6">Booking<i class="fas fa-arrow-right"></i></a>
-                                            <a href="{{ route('package.show',[$package->branch_package_detail_id]) }}" class="button-text width-6">Lihat Detail<i class="fas fa-arrow-right"></i></a>
+                                            <div class="btn-wrap">
+                                                <a href="{{ route('booking.show',[$package->branch_package_detail_id]) }}" class="button-text width-6">Booking<i class="fas fa-arrow-right"></i></a>
+                                                <a href="{{ route('package.show',[$package->branch_package_detail_id]) }}" class="button-text width-6">Lihat Detail<i class="fas fa-arrow-right"></i></a>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        @endforeach
+                            @endforeach
+                        @else
+                            <div class="booking-content text-center col-lg-12">
+                                <p class="text-center">Data tidak ditemukan</p>
+                            </div>
+                        @endif
                         {{--<div class="col-lg-6 col-md-6">--}}
                             {{--<div class="package-wrap">--}}
                                 {{--<figure class="feature-image">--}}

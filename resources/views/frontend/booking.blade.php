@@ -21,7 +21,7 @@
                     <div class="single-tour-inner">
                         <h2>{{ $package->basic_package_name }}</h2>
                         <figure class="feature-image">
-                            <img src="{{ asset('assets/images/umrah-sample1.jpeg')}}" alt="">
+                            <img src="{{ getImageUrl($package->basic_package_photos)}}" alt="">
                             <div class="package-meta text-center">
                                 <ul>
                                     <li>
@@ -45,6 +45,30 @@
                     <form action="{{ route('booking.store',[$package->branch_package_detail_id]) }}" name="myForm" id="myForm" method="post">
                     @csrf
                     <div class="data-jamaah">
+
+
+
+                        <div class="booking-content">
+                            <div class="form-title">
+                                <h3>Tipe Pembayaran</h3>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <div class="form-group">
+                                        <label>Tipe Pembayaran <span class="text-danger">*</span></label>
+                                        <select class="form-control payment_type" name="payment_type" id="payment_type">
+                                            <option value="" selected="">Pilih Tipe Pembayaran</option>
+                                            @foreach($paymentTypes as $paymentType)
+                                                <option value="{{ $paymentType->id }}">{{ $paymentType->name }}</option>
+                                            @endforeach
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+
                         <div class="booking-content jamaah-conter first-jamaah">
                             <div class="form-title">
                                 <span>1</span>
@@ -53,19 +77,19 @@
                             <div class="row">
                                 <div class="col-sm-6">
                                     <div class="form-group">
-                                        <label>Nama Depan*</label>
+                                        <label>Nama Depan <span class="text-danger">*</span></label>
                                         <input type="text" class="form-control first_name" name="data[0][first_name]">
                                     </div>
                                 </div>
                                 <div class="col-sm-6">
                                     <div class="form-group">
-                                        <label>Nama Belakang*</label>
+                                        <label>Nama Belakang <span class="text-danger">*</span></label>
                                         <input type="text" class="form-control last_name" name="data[0][last_name]">
                                     </div>
                                 </div>
                                 <div class="col-sm-6">
                                     <div class="form-group">
-                                        <label>Jenis Kelamin*</label>
+                                        <label>Jenis Kelamin <span class="text-danger">*</span></label>
                                         <select class="form-control gender" name="data[0][gender]" id="gender">
                                             <option value="" selected="">Pilih Jenis Kelamin</option>
                                             <option value="M">Pria</option>
@@ -75,20 +99,20 @@
                                 </div>
                                 <div class="col-sm-6">
                                     <div class="form-group">
-                                        <label>Nomor Ktp*</label>
+                                        <label>Nomor Ktp <span class="text-danger">*</span></label>
                                         <input type="text" class="form-control nik_number" name="data[0][nik_number]">
                                     </div>
                                 </div>
                                 <div class="col-sm-6">
                                     <div class="form-group">
-                                        <label>Nomor Handphone*</label>
+                                        <label>Nomor Handphone <span class="text-danger">*</span></label>
                                         <input type="text" class="form-control phone_number" name="data[0][phone_number]">
                                     </div>
                                 </div>
 
                                 <div class="col-sm-6">
                                     <div class="form-group">
-                                        <label>Hubungan Mahram/Pendamping*</label>
+                                        <label>Hubungan Mahram/Pendamping <span class="text-danger">*</span></label>
                                         <select class="form-control relation_type" name="data[0][relation_type]" id="country">
                                             <option value="" selected="">Pilih Hubungan</option>
                                             <option value="istri">Istri</option>
@@ -204,19 +228,19 @@
                             <div class="row">
                                 <div class="col-sm-6">
                                     <div class="form-group">
-                                        <label>Nama Depan*</label>
+                                        <label>Nama Depan <span class="text-danger">*</span></label>
                                         <input type="text" class="form-control first_name" name="data[{{ $i }}][first_name]">
                                     </div>
                                 </div>
                                 <div class="col-sm-6">
                                     <div class="form-group">
-                                        <label>Nama Belakang*</label>
+                                        <label>Nama Belakang <span class="text-danger">*</span></label>
                                         <input type="text" class="form-control last_name" name="data[{{ $i }}][last_name]">
                                     </div>
                                 </div>
                                 <div class="col-sm-6">
                                     <div class="form-group">
-                                        <label>Jenis Kelamin*</label>
+                                        <label>Jenis Kelamin <span class="text-danger">*</span></label>
                                         <select class="form-control gender" name="data[{{ $i }}][gender]" id="gender">
                                             <option value="" selected="">Pilih Jenis Kelamin</option>
                                             <option value="M">Pria</option>
@@ -226,19 +250,19 @@
                                 </div>
                                 <div class="col-sm-6">
                                     <div class="form-group">
-                                        <label>Nomor Ktp*</label>
+                                        <label>Nomor Ktp <span class="text-danger">*</span></label>
                                         <input type="text" class="form-control nik_number" name="data[{{ $i }}][nik_number]">
                                     </div>
                                 </div>
                                 <div class="col-sm-6">
                                     <div class="form-group">
-                                        <label>Nomor Handphone*</label>
+                                        <label>Nomor Handphone <span class="text-danger">*</span></label>
                                         <input type="text" class="form-control phone_number" name="data[{{ $i }}][phone_number]">
                                     </div>
                                 </div>
                                 <div class="col-sm-6">
                                     <div class="form-group">
-                                        <label>Hubungan Mahram/Pendamping*</label>
+                                        <label>Hubungan Mahram/Pendamping <span class="text-danger">*</span></label>
                                         <select class="form-control relation_type" name="data[{{ $i }}][relation_type]" id="country">
                                             <option value="" selected="">Pilih Hubungan</option>
                                             <option value="istri">Istri</option>

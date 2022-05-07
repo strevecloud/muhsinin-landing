@@ -12,7 +12,7 @@
                     <div class="single-tour-inner">
                         <h2>{{ $package->basic_package_name }}</h2>
                         <figure class="feature-image">
-                            <img src="{{ asset('assets/images/umrah-sample1.jpeg')}}" alt="">
+                            <img src="{{ getImageUrl($package->basic_package_photos)}}" alt="">
                             <div class="package-meta text-center">
                                 <ul>
                                     <li>
@@ -136,6 +136,14 @@
                                     </td>
                                     <td class="text-right">
                                         {{ $package->master_room_value }}
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <strong>Tipe Pembayaran</strong>
+                                    </td>
+                                    <td class="text-right">
+                                        {{ ucfirst($booking->paymentType->name) }}
                                     </td>
                                 </tr>
                                 <tr class="total">

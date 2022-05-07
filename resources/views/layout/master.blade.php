@@ -21,6 +21,7 @@
     {!! Html::style('assets/vendors/slick/slick.css') !!}
     {!! Html::style('assets/vendors/slick/slick-theme.css') !!}
     <!-- google fonts -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.4/jquery-confirm.min.css" />
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,400&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.2.0/css/datepicker.min.css" rel="stylesheet">
     <!-- Custom CSS -->
@@ -80,12 +81,24 @@
 {!! Html::script('assets/vendors/slick/slick.min.js') !!}
 {!! Html::script('assets/js/jquery.slicknav.js') !!}
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.2.0/js/bootstrap-datepicker.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.4/jquery-confirm.min.js"></script>
 {!! Html::script('assets/js/custom.js') !!}
 @yield('script')
 
 <script>
     $(document).ready(function(){
         $("#myForm").validate({ errorElement: 'div' });
+
+        $('.payment_type').each(function () {
+            console.log(this);
+            $(this).rules('add', {
+                required: true,
+                messages: {
+                    required: "Jenis pembayaran harus diisi.",
+                }
+            })
+        });
+
         $('.first_name').each(function () {
             console.log(this);
             $(this).rules('add', {
@@ -144,7 +157,27 @@
         $(document).on('click','#submit-booking',function(e){
             let valid = $("#myForm").valid();
             if(valid){
-                $('#myForm').submit();
+                $.confirm({
+                    title: 'Konfirmasi!',
+                    theme: 'material',
+                    columnClass: 'col-md-6',
+                    content: 'Pastikan data yang anda masukkan sudah benar dan valid',
+                    buttons: {
+                        confirm: {
+                            text: 'Konfirmasi',
+                            btnClass: 'btn-blue',
+                            action: function(){
+                                $('#myForm').submit();
+                            }
+                        },
+                        cancel:{
+                            text: 'Cek lagi',
+                            action: function(){
+                                return;
+                            }
+                        }
+                    }
+                });
             }
         });
     });

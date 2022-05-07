@@ -21,7 +21,7 @@ class PackageBookingRepository
 
     public function getByCode($code)
     {
-        return PackageBookings::where('booking_code','=',$code)->with('viewPackage')->with('bookingDetail')->first();
+        return PackageBookings::where('booking_code','=',$code)->with('paymentType')->with('viewPackage')->with('bookingDetail')->firstOrFail();
     }
 
     public function getDetailByPackageBookingId($id)
@@ -53,7 +53,6 @@ class PackageBookingRepository
 
         try{
             DB::beginTransaction();
-
             $packageDetailId = $data['package_detail_id'];
 
             $viewPackage = ViewPackages::where('branch_package_detail_id','=',$packageDetailId)->firstOrFail();
@@ -65,6 +64,7 @@ class PackageBookingRepository
             $booking->basic_package_id = $viewPackage->basic_package_id;
             $booking->branch_package_detail_id = $packageDetailId;
             $booking->booking_quota = $viewPackage->master_room_value;
+            $booking->payment_type_id = $data['payment_type'];
             $booking->save();
 
             foreach ($data['data'] as $item){
