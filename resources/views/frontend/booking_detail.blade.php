@@ -56,10 +56,10 @@
                                         <td>Tipe Kamar</td>
                                         <td>{{ $package->master_room_name }}</td>
                                     </tr>
-                                    <tr>
-                                        <td>Jumlah Jamaah</td>
-                                        <td>{{ $package->master_room_value }}</td>
-                                    </tr>
+                                    {{--<tr>--}}
+                                        {{--<td>Jumlah Jamaah</td>--}}
+                                        {{--<td>{{ $package->master_room_value }}</td>--}}
+                                    {{--</tr>--}}
                                     <tr>
                                         <td>Warktu Pemesanan</td>
                                         <td>{{ getDateIndoWithTime($booking->created_at) }}</td>
@@ -96,22 +96,22 @@
                                                 {{ $package->master_room_name }}
                                             </td>
                                         </tr>
-                                        <tr>
-                                            <td>
-                                                <strong>Jumlah Jamaah</strong>
-                                            </td>
-                                            <td class="text-right">
-                                                {{ $package->master_room_value }}
-                                            </td>
-                                        </tr>
-                                        <tr class="total">
-                                            <td>
-                                                <strong>Total Harga</strong>
-                                            </td>
-                                            <td class="text-right">
-                                                <strong>Rp {{ get_currency($package->branch_package_detail_selling_price * $package->master_room_value) }}</strong>
-                                            </td>
-                                        </tr>
+                                        {{--<tr>--}}
+                                            {{--<td>--}}
+                                                {{--<strong>Jumlah Jamaah</strong>--}}
+                                            {{--</td>--}}
+                                            {{--<td class="text-right">--}}
+                                                {{--{{ $package->master_room_value }}--}}
+                                            {{--</td>--}}
+                                        {{--</tr>--}}
+                                        {{--<tr class="total">--}}
+                                            {{--<td>--}}
+                                                {{--<strong>Total Harga</strong>--}}
+                                            {{--</td>--}}
+                                            {{--<td class="text-right">--}}
+                                                {{--<strong>Rp {{ get_currency($package->branch_package_detail_selling_price * $package->master_room_value) }}</strong>--}}
+                                            {{--</td>--}}
+                                        {{--</tr>--}}
                                         </tbody>
                                     </table>
                                 </div>

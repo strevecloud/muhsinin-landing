@@ -130,14 +130,14 @@
                                         {{ $package->master_room_name }}
                                     </td>
                                 </tr>
-                                <tr>
-                                    <td>
-                                        <strong>Jumlah Jamaah</strong>
-                                    </td>
-                                    <td class="text-right">
-                                        {{ $package->master_room_value }}
-                                    </td>
-                                </tr>
+                                {{--<tr>--}}
+                                    {{--<td>--}}
+                                        {{--<strong>Jumlah Jamaah</strong>--}}
+                                    {{--</td>--}}
+                                    {{--<td class="text-right">--}}
+                                        {{--{{ $package->master_room_value }}--}}
+                                    {{--</td>--}}
+                                {{--</tr>--}}
                                 <tr>
                                     <td>
                                         <strong>Tipe Pembayaran</strong>
@@ -146,14 +146,14 @@
                                         {{ ucfirst($booking->paymentType->name) }}
                                     </td>
                                 </tr>
-                                <tr class="total">
-                                    <td>
-                                        <strong>Total Harga</strong>
-                                    </td>
-                                    <td class="text-right">
-                                        <strong>Rp {{ get_currency($package->branch_package_detail_selling_price * $package->master_room_value) }}</strong>
-                                    </td>
-                                </tr>
+                                {{--<tr class="total">--}}
+                                    {{--<td>--}}
+                                        {{--<strong>Total Harga</strong>--}}
+                                    {{--</td>--}}
+                                    {{--<td class="text-right">--}}
+                                        {{--<strong>Rp {{ get_currency($package->branch_package_detail_selling_price * $package->master_room_value) }}</strong>--}}
+                                    {{--</td>--}}
+                                {{--</tr>--}}
                                 </tbody>
                             </table>
                         </div>
