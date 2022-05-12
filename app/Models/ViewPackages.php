@@ -14,4 +14,8 @@ class ViewPackages extends Model
     public function packageBooking(){
         return $this->hasMany(PackageBookings::class,'branch_package_detail_id','branch_package_detail_id');
     }
+
+    public function offering(){
+        return $this->belongsTo(OfferingVendors::class,'offering_vendor_id');
+    }
 }

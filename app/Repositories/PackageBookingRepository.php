@@ -5,6 +5,7 @@ namespace App\Repositories;
 use App\Models\PackageBookings;
 use App\Models\PackageBookingDetails;
 use App\Models\ViewPackages;
+use App\Models\User;
 use DB;
 
 class PackageBookingRepository
@@ -57,6 +58,12 @@ class PackageBookingRepository
 
             $viewPackage = ViewPackages::where('branch_package_detail_id','=',$packageDetailId)->firstOrFail();
 
+            $user = null;
+
+            if(@$data['agent_code']){
+                $user = User::where('internal_code','=',$data['agent_code'])->first();
+            }
+
 
             $booking = new PackageBookings();
             $booking->booking_code = @createBooking();
@@ -65,6 +72,10 @@ class PackageBookingRepository
             $booking->branch_package_detail_id = $packageDetailId;
             $booking->booking_quota = $viewPackage->master_room_value;
             $booking->payment_type_id = $data['payment_type'];
+            $booking->status = 'PENDING';
+            if($user){
+               $booking->agent_id = $user->id;
+            }
             $booking->save();
 
             foreach ($data['data'] as $item){

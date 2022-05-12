@@ -8565,4 +8565,16 @@ div[id$="-error"] {
 .text-sm-bold{
     font-weight: 500;
 }
+
+.hide{
+    display: none;
+}
+
+.hide-component{
+    display: none;
+}
+
+label.hide-component {
+    display: none;
+}
 /*# sourceMappingURL=style.css.map */

@@ -47,6 +47,28 @@
                     <div class="data-jamaah">
 
 
+                        <div class="booking-content">
+                            <div class="form-title">
+                                <h3>Informasi Pendaftaran</h3>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <div class="form-group">
+                                        <label>Silahkan pilih jika anda adalah seorang agen.</label>
+                                        <label class="checkbox-list">
+                                            <input type="checkbox" class="checkbox-button" name="s">
+                                            <span class="custom-checkbox"></span>
+                                            Saya adalah agen.
+                                        </label>
+                                    </div>
+
+                                    <div class="form-group" id="form_agent hide-component">
+                                        <label class="hide-component">Kode Agen<span class="text-danger ">*</span></label>
+                                        <input type="text" class="form-control agent_code hide-component" id="agent_code" name="agent_code">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
 
                         <div class="booking-content">
                             <div class="form-title">
@@ -314,22 +336,22 @@
                                         {{ $package->master_room_name }}
                                     </td>
                                 </tr>
-                                <tr>
-                                    <td>
-                                        <strong>Jumlah Jamaah</strong>
-                                    </td>
-                                    <td class="text-right">
-                                        {{ $package->master_room_value }}
-                                    </td>
-                                </tr>
-                                <tr class="total">
-                                    <td>
-                                        <strong>Total Harga</strong>
-                                    </td>
-                                    <td class="text-right">
-                                        <strong>Rp {{ get_currency($package->branch_package_detail_selling_price * $package->master_room_value) }}</strong>
-                                    </td>
-                                </tr>
+                                {{--<tr>--}}
+                                    {{--<td>--}}
+                                        {{--<strong>Jumlah Jamaah</strong>--}}
+                                    {{--</td>--}}
+                                    {{--<td class="text-right">--}}
+                                        {{--{{ $package->master_room_value }}--}}
+                                    {{--</td>--}}
+                                {{--</tr>--}}
+                                {{--<tr class="total">--}}
+                                    {{--<td>--}}
+                                        {{--<strong>Total Harga</strong>--}}
+                                    {{--</td>--}}
+                                    {{--<td class="text-right">--}}
+                                        {{--<strong>Rp {{ get_currency($package->branch_package_detail_selling_price * $package->master_room_value) }}</strong>--}}
+                                    {{--</td>--}}
+                                {{--</tr>--}}
                                 </tbody>
                             </table>
                             <div class="form-group submit-btn text-center">
@@ -345,7 +367,20 @@
 @endsection
 @section('script')
     <script>
+        $(document).on('click', '.custom-checkbox',function(){
+            let component = $('#agent_code');
+            let hasHide = $(component).hasClass('hide-component');
+            console.log(hasHide);
+            if(hasHide){
+                $('#form_agent').removeClass('hide-component');
+                $('#agent_code').removeClass('hide-component');
+            }else{
+                $('#form_agent').addClass('hide-component');
+                $('#agent_code').addClass('hide-component');
+            }
+        });
         $(document).ready(function(){
+
             $(document).on('click','.add-jamaah',function(){
                 let templateFoorm = $('#booking-content-template-hidden').clone();
                 $(templateFoorm).removeClass('booking-content-template-hidden');

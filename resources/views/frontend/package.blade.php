@@ -84,7 +84,7 @@
                                 <div class="package-wrap">
                                     <figure class="feature-image">
                                         <a href="{{ route('package.show',[$package->branch_package_detail_id]) }}">
-                                            <img src="{{ asset('assets/images/umrah-sample1.jpeg')}}" alt="">
+                                            <img src="{{ getImageUrl($package->basic_package_photos)}}" alt="">
                                         </a>
                                     </figure>
                                     <div class="package-price">

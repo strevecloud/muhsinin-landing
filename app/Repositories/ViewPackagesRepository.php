@@ -9,7 +9,7 @@ class ViewPackagesRepository
 {
     public function getAll()
     {
-        return ViewPackages::simplePaginate(6)->withQueryString();
+        return ViewPackages::with('offering.offeringHotel')->simplePaginate(6)->withQueryString();
     }
 
     public function getById($id)
@@ -32,7 +32,7 @@ class ViewPackagesRepository
             $year = $departureDate[1];
         }
         $dateNow = Carbon::now();
-        $query = ViewPackages::where('master_office_id','=',$request->input('city_branch'));
+        $query = ViewPackages::with('offering.offeringHotel')->where('master_office_id','=',$request->input('city_branch'));
         $query->where('master_room_id','=',$request->input('room_type'));
         if($month > 0){
             $query->whereMonth('basic_package_depature_date','=',$month);
