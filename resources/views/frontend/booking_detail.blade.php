@@ -318,6 +318,7 @@
             $('#file_'+count).val('');
             $('#note_'+count).val('');
             $('#amount_'+count).val('Rp. 0');
+            $('#status_'+count).val('Pending');
         });
 
         $(document).on('click','#delete_row',function(){
