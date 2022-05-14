@@ -38,7 +38,7 @@ class PaymentsRepository
             $history->payment_id = $payment->id;
             $history->image_url = $path;
             $history->user_note = @$data['note'];
-            $history->status = 'need_approved';
+            $history->status = 'NEED_APPROVED';
             $history->save();
 
             DB::commit();

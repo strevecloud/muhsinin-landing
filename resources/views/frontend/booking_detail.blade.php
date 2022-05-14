@@ -75,6 +75,12 @@
                                         <td>Warktu Pemesanan</td>
                                         <td>{{ getDateIndoWithTime($booking->created_at) }}</td>
                                     </tr>
+
+                                    <tr>
+                                        <td>Dana Terbayar</td>
+                                        <td>Rp {{ get_currency($payment->payment->in_amount) }}</td>
+                                    </tr>
+
                                     </tbody>
                                 </table>
                                 <div class="details">
@@ -114,7 +120,7 @@
                                                 <strong><b>Status Pemesanan</b></strong>
                                             </td>
                                             <td class="text-right">
-                                                Booking
+                                                {{ ucwords(strtolower(@$payment->status)) }}
                                             </td>
                                         </tr>
                                         {{--<tr>--}}
@@ -206,16 +212,16 @@
                                                             @endif
                                                         </td>
                                                         <td>
-                                                            <input type="text" id="amount_1" style="text-align: right;width:auto" value="Rp. {{ @$history->billing_amount ?? 0 }}" class="form-control readonly input"/>
+                                                            <input type="text" id="amount_1" style="text-align: right;width:auto" value="Rp {{ @get_currency($history->amount) ?? 0 }}" class="form-control readonly input"/>
                                                         </td>
                                                         <td>
                                                             @php
                                                                 $status = '';
-                                                                if(@$history->status == 'need_approved'){
+                                                                if(@$history->status == strtoupper('need_approved')){
                                                                     $status = 'Menunggu Konfirmasi';
-                                                                }else if(@$history->status == 'approved'){
+                                                                }else if(@$history->status == strtoupper('approved')){
                                                                     $status = 'Sudah Dikonfirmasi';
-                                                                }else if(@$history->status == 'rejected'){
+                                                                }else if(@$history->status == strtoupper('rejected')){
                                                                     $status = 'Permintaan Ditolak';
                                                                 }
                                                             @endphp

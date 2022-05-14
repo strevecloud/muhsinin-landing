@@ -72,7 +72,7 @@ class PackageBookingRepository
             $booking->branch_package_detail_id = $packageDetailId;
             $booking->booking_quota = count($data['data']);
             $booking->payment_type_id = $data['payment_type'];
-            $booking->status = 'booking';
+            $booking->status = 'BOOKING';
             if($user){
                $booking->agent_id = $user->id;
             }
