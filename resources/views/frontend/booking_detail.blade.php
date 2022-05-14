@@ -156,7 +156,7 @@
                             <h3>Bukti Pembayaran</h3>
                             <div class="details-desc payment">
                                 {{--<div class="container">--}}
-                                    <div class="row clearfix">
+                                    <div class="row clearfix table-responsive">
                                         <div class="col-md-12 column">
                                             <table class="table table-bordered table-hover" id="tab_logic">
                                                 <thead>
@@ -188,24 +188,25 @@
                                                 @if(@$payment->payment->history)
                                                     @foreach(@$payment->payment->history as $history)
                                                     <tr id='first' class="new-row">
-                                                        <td class="numbering">{{ $i }}</td>
+                                                        <td class="numbering" style="width:auto">{{ $i }}</td>
                                                         <td>
                                                             <input type="text" id="note_1" placeholder='Tambah Catatan'
                                                                    value="{{ @$history->user_note ??  'Tidak Ada Catatan' }}"
                                                                    class="form-control input {{ @$history->id ? 'readonly' : '' }}"
+                                                                   style="width:auto"
                                                             />
 
                                                             <input type="hidden" id="hidden_1" value="{{ $booking->booking_code }}" class="form-control input"/>
                                                         </td>
                                                         <td class="text-center">
                                                             @if(@!$history->id)
-                                                                <input type="file" id="file_1" placeholder='Upload Bukti' class="form-control input"/>
+                                                                <input type="file" style="width:auto" id="file_1" placeholder='Upload Bukti' class="form-control input"/>
                                                             @else
-                                                                <a class="btn btn-outline-info download" id="file_1" href="{{ getImageUrl(@$history->image_url) }}" rel="nofollow">Download</a>
+                                                                <a class="btn btn-outline-info download" style="width:auto" id="file_1" href="{{ getImageUrl(@$history->image_url) }}" rel="nofollow">Download</a>
                                                             @endif
                                                         </td>
                                                         <td>
-                                                            <input type="text" id="amount_1" style="text-align: right" value="Rp. {{ @$history->billing_amount ?? 0 }}" class="form-control readonly input"/>
+                                                            <input type="text" id="amount_1" style="text-align: right;width:auto" value="Rp. {{ @$history->billing_amount ?? 0 }}" class="form-control readonly input"/>
                                                         </td>
                                                         <td>
                                                             @php
@@ -218,13 +219,13 @@
                                                                     $status = 'Permintaan Ditolak';
                                                                 }
                                                             @endphp
-                                                            <input type="text" id="status_1" value="{{ @$status }}" class="form-control readonly input"/>
+                                                            <input type="text" id="status_1" style="width:auto" value="{{ @$status }}" class="form-control readonly input"/>
                                                         </td>
                                                         <td class="text-center">
                                                             @if(@!$history->id)
-                                                                <button type="button" id="submit_1" class="btn btn-primary submit">Kirim</button>
+                                                                <button type="button" style="width:auto" id="submit_1" class="btn btn-primary submit">Kirim</button>
                                                             @else
-                                                                <button type="button" id="submit_1" class="btn btn-outline-secondary">Terkirim</button>
+                                                                <button type="button" style="width:auto" id="submit_1" class="btn btn-outline-secondary">Terkirim</button>
                                                             @endif
                                                         </td>
                                                     </tr>
@@ -234,22 +235,22 @@
                                                     @endforeach
                                                 @else
                                                     <tr id='first' class="new-row">
-                                                        <td class="numbering">1</td>
+                                                        <td class="numbering" style="width:auto">1</td>
                                                         <td>
-                                                            <input type="text" id="note_1" placeholder='Tambah Catatan' class="form-control input"/>
+                                                            <input type="text" style="width:auto" id="note_1" placeholder='Tambah Catatan' class="form-control input"/>
                                                             <input type="hidden" id="hidden_1" value="{{ $booking->booking_code }}" class="form-control input"/>
                                                         </td>
                                                         <td>
-                                                            <input type="file" required id="file_1" placeholder='Upload Bukti' class="form-control input"/>
+                                                            <input type="file" style="width:auto" required id="file_1" placeholder='Upload Bukti' class="form-control input"/>
                                                         </td>
                                                         <td>
-                                                            <input type="text" style="text-align: right" id="amount_1" value="Rp. 0" class="form-control readonly input"/>
+                                                            <input type="text" style="text-align: right;width:auto" id="amount_1" value="Rp. 0" class="form-control readonly input"/>
                                                         </td>
                                                         <td>
-                                                            <input type="text" id="status_1" value="Pending" class="form-control readonly input"/>
+                                                            <input type="text" style="width:auto" id="status_1" value="Pending" class="form-control readonly input"/>
                                                         </td>
                                                         <td>
-                                                            <button type="button" id="submit_1" class="btn btn-primary submit">Kirim</button>
+                                                            <button type="button" style="width:auto" id="submit_1" class="btn btn-primary submit">Kirim</button>
                                                         </td>
                                                     </tr>
                                                 @endif
