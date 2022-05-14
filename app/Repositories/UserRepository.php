@@ -8,6 +8,6 @@ class UserRepository
 {
     public function userFindByInternalCode($code)
     {
-        return User::where('internal_code','=', $code)->first();
+        return User::where('internal_code','=', $code)->where('is_active','=',true)->first();
     }
 }
