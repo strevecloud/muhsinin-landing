@@ -187,9 +187,13 @@
                                                         {{--<div class="rating-start" title="Rated 5 out of 5">--}}
                                                             {{--<span style="width: 60%"></span>--}}
                                                         {{--</div>--}}
-                                                        @foreach($package->offering->offeringHotel as $hotel)
-                                                            {{ ucwords(strtolower($hotel->hotel->name)) }},
-                                                        @endforeach
+                                                        @if(@$package->offering->offeringHotel)
+                                                            @foreach($package->offering->offeringHotel as $hotel)
+                                                                {{ ucwords(strtolower($hotel->hotel->name)) }},
+                                                            @endforeach
+                                                        @else
+                                                            <span>N/A</span>
+                                                        @endif
                                                     </div>
                                                 </div>
 
