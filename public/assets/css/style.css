@@ -8577,4 +8577,41 @@ div[id$="-error"] {
 label.hide-component {
     display: none;
 }
+
+.hide{
+    display:none;
+}
+
+.confirmation-details table tr td {
+    color: #383838;
+    width: unset !important;
+    border: none;
+}
+
+.details-desc.payment{
+    background-color: white !important;
+}
+
+#tab_logic{
+    margin-bottom: 20px!important;
+}
+
+.header-table{
+    background-color:white !important;
+}
+
+.pull-right {
+    float: right!important;
+}
+
+.pull-left {
+    float: left!important;
+}
+.readonly {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    pointer-events: none;
+}
 /*# sourceMappingURL=style.css.map */

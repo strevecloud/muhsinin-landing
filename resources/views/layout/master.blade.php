@@ -26,7 +26,7 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.2.0/css/datepicker.min.css" rel="stylesheet">
     <!-- Custom CSS -->
     {!! Html::style('assets/css/style.css') !!}
-    <title>Travele | Travel & Tour HTML5 template </title>
+    <title>Muhsinin Travel </title>
 </head>
 <body class="home">
 <div id="siteLoader" class="site-loader">
@@ -88,98 +88,6 @@
 <script>
     $(document).ready(function(){
         $("#myForm").validate({ errorElement: 'div' });
-
-        $('.payment_type').each(function () {
-            console.log(this);
-            $(this).rules('add', {
-                required: true,
-                messages: {
-                    required: "Jenis pembayaran harus diisi.",
-                }
-            })
-        });
-
-        $('.first_name').each(function () {
-            console.log(this);
-            $(this).rules('add', {
-                required: true,
-                messages: {
-                    required: "Nama depan harus diisi.",
-                }
-            })
-        });
-        $('.last_name').each(function () {
-            $(this).rules('add', {
-                required: true,
-                messages: {
-                    required: "Nama belakang harus diisi.",
-                }
-            })
-        });
-
-        $('.gender').each(function () {
-            $(this).rules('add', {
-                required: true,
-                messages: {
-                    required: "Jenis kelamin harus diisi.",
-                }
-            })
-        });
-
-        $('.nik_number').each(function () {
-            $(this).rules('add', {
-                required: true,
-                messages: {
-                    required: "Nomor KTP harus diisi.",
-                }
-            })
-        });
-
-        $('.phone_number').each(function () {
-            $(this).rules('add', {
-                required: true,
-                messages: {
-                    required: "Nomor HP harus diisi.",
-                }
-            })
-        });
-
-        $('.relation_type').each(function () {
-            $(this).rules('add', {
-                required: true,
-                messages: {
-                    required: "Hubungan mahram/pendamping harus diisi.",
-                }
-            })
-        });
-
-
-        $(document).on('click','#submit-booking',function(e){
-            let valid = $("#myForm").valid();
-            if(valid){
-                $.confirm({
-                    title: 'Konfirmasi!',
-                    theme: 'material',
-                    columnClass: 'col-md-6',
-                    content: 'Pastikan data yang anda masukkan sudah benar dan valid',
-                    buttons: {
-                        confirm: {
-                            text: 'Konfirmasi',
-                            btnClass: 'btn-blue',
-                            action: function(){
-                                $('#myForm').submit();
-                            }
-                        },
-                        cancel:{
-                            text: 'Cek lagi',
-                            action: function(){
-                                return;
-                            }
-                        }
-                    }
-                });
-            }
-        });
     });
 </script>
 </body>

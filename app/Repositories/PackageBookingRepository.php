@@ -70,9 +70,9 @@ class PackageBookingRepository
             $booking->master_room_id = $viewPackage->master_room_id;
             $booking->basic_package_id = $viewPackage->basic_package_id;
             $booking->branch_package_detail_id = $packageDetailId;
-            $booking->booking_quota = $viewPackage->master_room_value;
+            $booking->booking_quota = count($data['data']);
             $booking->payment_type_id = $data['payment_type'];
-            $booking->status = 'PENDING';
+            $booking->status = 'booking';
             if($user){
                $booking->agent_id = $user->id;
             }

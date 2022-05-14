@@ -9,6 +9,7 @@ use App\Repositories\MasterOfficeRepository;
 use App\Repositories\ViewPackagesRepository;
 use App\Repositories\PackageBookingRepository;
 use App\Repositories\MasterPaymentTypeRepository;
+use App\Repositories\PaymentsRepository;
 
 class BookingController extends Controller
 {
@@ -18,6 +19,7 @@ class BookingController extends Controller
     protected $viewPackagesRepository;
     protected $packageBookingRepository;
     protected $paymentTypeRepository;
+    protected $paymentRepository;
 
     public function __construct()
     {
@@ -26,6 +28,7 @@ class BookingController extends Controller
         $this->viewPackagesRepository = new ViewPackagesRepository();
         $this->packageBookingRepository = new PackageBookingRepository();
         $this->paymentTypeRepository = new MasterPaymentTypeRepository();
+        $this->paymentRepository = new PaymentsRepository();
     }
 
     /**
@@ -79,8 +82,9 @@ class BookingController extends Controller
         $booking = $this->packageBookingRepository->getByCode($code);
         $bookingDetail = $this->packageBookingRepository->getDetailByPackageBookingId($booking->id);
         $package = $this->viewPackagesRepository->getByBranchPackageDetailId($booking->branch_package_detail_id);
+        $payment = $this->paymentRepository->findByBookingByCode($code);
 
-        return view('frontend/booking_detail', compact('booking','bookingDetail','package'));
+        return view('frontend/booking_detail', compact('booking','bookingDetail','package','payment'));
     }
 
     public function info($code){

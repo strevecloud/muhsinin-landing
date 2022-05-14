@@ -46,6 +46,16 @@
                     @csrf
                     <div class="data-jamaah">
 
+                        <div class="success-notify">
+                            <div class="success-content">
+                                <h3>Informasi Tipe Pembayaran</h3>
+                                <p>1. Cash = Transfer ke Rekening BSI (Bank Syariah Indonesia an. PT Barokah Insan Muhsinin Cab. Depok Cinere
+                                    no rekening 8008282080</p>
+                                <br>
+                                <p>2. Pembiayaan = (DP Rp 7juta,Upload KTP dan KK, Isi Formulir).</p>
+                            </div>
+                        </div>
+
 
                         <div class="booking-content">
                             <div class="form-title">
@@ -100,42 +110,42 @@
                                 <div class="col-sm-6">
                                     <div class="form-group">
                                         <label>Nama Depan <span class="text-danger">*</span></label>
-                                        <input type="text" class="form-control first_name" name="data[0][first_name]">
+                                        <input type="text" class="form-control first_name" id="first_name_0" name="data[0][first_name]">
                                     </div>
                                 </div>
                                 <div class="col-sm-6">
                                     <div class="form-group">
                                         <label>Nama Belakang <span class="text-danger">*</span></label>
-                                        <input type="text" class="form-control last_name" name="data[0][last_name]">
+                                        <input type="text" class="form-control last_name" id="last_name_0" name="data[0][last_name]">
                                     </div>
                                 </div>
                                 <div class="col-sm-6">
                                     <div class="form-group">
                                         <label>Jenis Kelamin <span class="text-danger">*</span></label>
-                                        <select class="form-control gender" name="data[0][gender]" id="gender">
+                                        <select class="form-control gender_0" name="data[0][gender]" id="gender_1">
                                             <option value="" selected="">Pilih Jenis Kelamin</option>
-                                            <option value="M">Pria</option>
-                                            <option value="F">Wanita</option>
+                                            <option value="M">Laki Laki</option>
+                                            <option value="F">Perempuan</option>
                                         </select>
                                     </div>
                                 </div>
                                 <div class="col-sm-6">
                                     <div class="form-group">
                                         <label>Nomor Ktp <span class="text-danger">*</span></label>
-                                        <input type="text" class="form-control nik_number" name="data[0][nik_number]">
+                                        <input type="text" class="form-control nik_number" id="nik_number_0" name="data[0][nik_number]">
                                     </div>
                                 </div>
                                 <div class="col-sm-6">
                                     <div class="form-group">
                                         <label>Nomor Handphone <span class="text-danger">*</span></label>
-                                        <input type="text" class="form-control phone_number" name="data[0][phone_number]">
+                                        <input type="text" class="form-control phone_number" id="phone_number_0" name="data[0][phone_number]">
                                     </div>
                                 </div>
 
                                 <div class="col-sm-6">
                                     <div class="form-group">
                                         <label>Hubungan Mahram/Pendamping <span class="text-danger">*</span></label>
-                                        <select class="form-control relation_type" name="data[0][relation_type]" id="country">
+                                        <select class="form-control relation_type" name="data[0][relation_type]" id="relation_type_0">
                                             <option value="" selected="">Pilih Hubungan</option>
                                             <option value="istri">Istri</option>
                                             <option value="suami">Suami</option>
@@ -154,33 +164,120 @@
                                 <input type="hidden" name="data[0][is_lead]" value="true">
                                 <input type="hidden" name="package_detail_id" value="{{ $package->branch_package_detail_id }}">
 
-                                {{--<div class="col-md-12">--}}
-                                    {{--<button type="button" class="btn btn-primary float-left add-jamaah">Tambah Jamaah</button>--}}
-                                {{--</div>--}}
+                                <div class="col-md-12">
+                                    <button type="button" class="btn btn-primary float-left add-jamaah">Tambah Jamaah</button>
+                                </div>
                             </div>
                         </div>
-                        {{--<div class="booking-content booking-content-template-hidden" id="booking-content-template-hidden">--}}
+
+
+                        <div class="booking-content booking-content-template-hidden" id="booking-content-template-hidden">
+                            <div class="form-title">
+                                <span class="person-number">1</span>
+                                <h3 class="person-number-text">Jamaah Pertama</h3>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label>Nama Depan <span class="text-danger">*</span></label>
+                                        <input type="text" class="form-control input-data first_name" id="first_name">
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label>Nama Belakang <span class="text-danger">*</span></label>
+                                        <input type="text" class="form-control input-data last_name" id="last_name">
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label>Jenis Kelamin <span class="text-danger">*</span></label>
+                                        <select class="form-control input-data gender" id="gender">
+                                            <option value="" selected="">Pilih Jenis Kelamin</option>
+                                            <option value="M">Laki Laki</option>
+                                            <option value="F">Perrempuan</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label>Nomor Ktp <span class="text-danger">*</span></label>
+                                        <input type="text" class="form-control input-data nik_number" id="nik_number">
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label>Nomor Handphone <span class="text-danger">*</span></label>
+                                        <input type="text" class="form-control input-data phone_number" id="phone_number">
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label>Hubungan Mahram/Pendamping <span class="text-danger">*</span></label>
+                                        <select class="form-control input-data relation_type" id="relation_type">
+                                            <option value="" selected="">Pilih Hubungan</option>
+                                            <option value="istri">Istri</option>
+                                            <option value="suami">Suami</option>
+                                            <option value="anak">Anak</option>
+                                            <option value="ayah">Ayah</option>
+                                            <option value="ibu">Ibu</option>
+                                            <option value="adik">Adik</option>
+                                            <option value="kakak">Kakak</option>
+                                            <option value="mertua">Mertua</option>
+                                            <option value="saudara">Saudara</option>
+                                            <option value="lainya">Lainya</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-12">
+                                    <button type="button" class="btn btn-primary add-jamaah float-left">Tambah Jamaah</button>
+                                    <button type="button" class="btn btn-warning delete-jamaah float-right">Hapus Jamaah</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <span id="room_val" class="hide">{{ $package->master_room_value }}</span>
+
+
+
+                        {{--@for ($i = 1; $i <= $package->master_room_value-1; $i++)--}}
+                        {{--<div class="booking-content booking-content-template" id="booking-content-template">--}}
                             {{--<div class="form-title">--}}
-                                {{--<span class="person-number">1</span>--}}
-                                {{--<h3 class="person-number-text">Jamaah Pertama</h3>--}}
+                                {{--<span class="person-number">{{$i+1}}</span>--}}
+                                {{--@php--}}
+
+                                {{--$personNumber = 0;--}}
+                                {{--if($i == 0){--}}
+                                    {{--$personNumber = 'Pertama';--}}
+                                {{--}else if($i == 1){--}}
+                                    {{--$personNumber = 'Kedua';--}}
+                                {{--}else if($i == 2){--}}
+                                    {{--$personNumber = 'Ketiga';--}}
+                                {{--}else if($i == 3){--}}
+                                    {{--$personNumber = 'Keempat';--}}
+                                {{--}--}}
+
+                                {{--@endphp--}}
+                                {{--<h3 class="person-number-text">Jamaah {{$personNumber}}</h3>--}}
                             {{--</div>--}}
                             {{--<div class="row">--}}
                                 {{--<div class="col-sm-6">--}}
                                     {{--<div class="form-group">--}}
-                                        {{--<label>Nama Depan*</label>--}}
-                                        {{--<input type="text" class="form-control" name="firstname_booking">--}}
+                                        {{--<label>Nama Depan <span class="text-danger">*</span></label>--}}
+                                        {{--<input type="text" class="form-control first_name" name="data[{{ $i }}][first_name]">--}}
                                     {{--</div>--}}
                                 {{--</div>--}}
                                 {{--<div class="col-sm-6">--}}
                                     {{--<div class="form-group">--}}
-                                        {{--<label>Nama Belakang*</label>--}}
-                                        {{--<input type="text" class="form-control" name="lastname_booking">--}}
+                                        {{--<label>Nama Belakang <span class="text-danger">*</span></label>--}}
+                                        {{--<input type="text" class="form-control last_name" name="data[{{ $i }}][last_name]">--}}
                                     {{--</div>--}}
                                 {{--</div>--}}
                                 {{--<div class="col-sm-6">--}}
                                     {{--<div class="form-group">--}}
-                                        {{--<label>Jenis Kelamin*</label>--}}
-                                        {{--<select class="form-control" name="gender" id="gender">--}}
+                                        {{--<label>Jenis Kelamin <span class="text-danger">*</span></label>--}}
+                                        {{--<select class="form-control gender" name="data[{{ $i }}][gender]" id="gender">--}}
                                             {{--<option value="" selected="">Pilih Jenis Kelamin</option>--}}
                                             {{--<option value="M">Pria</option>--}}
                                             {{--<option value="F">Wanita</option>--}}
@@ -189,20 +286,20 @@
                                 {{--</div>--}}
                                 {{--<div class="col-sm-6">--}}
                                     {{--<div class="form-group">--}}
-                                        {{--<label>Nomor Ktp*</label>--}}
-                                        {{--<input type="email" class="form-control" name="email_booking">--}}
+                                        {{--<label>Nomor Ktp <span class="text-danger">*</span></label>--}}
+                                        {{--<input type="text" class="form-control nik_number" name="data[{{ $i }}][nik_number]">--}}
                                     {{--</div>--}}
                                 {{--</div>--}}
                                 {{--<div class="col-sm-6">--}}
                                     {{--<div class="form-group">--}}
-                                        {{--<label>Nomor Handphone*</label>--}}
-                                        {{--<input type="text" class="form-control" name="lastname_booking">--}}
+                                        {{--<label>Nomor Handphone <span class="text-danger">*</span></label>--}}
+                                        {{--<input type="text" class="form-control phone_number" name="data[{{ $i }}][phone_number]">--}}
                                     {{--</div>--}}
                                 {{--</div>--}}
                                 {{--<div class="col-sm-6">--}}
                                     {{--<div class="form-group">--}}
-                                        {{--<label>Hubungan Dengan Orang Pertama*</label>--}}
-                                        {{--<select class="form-control" name="country" id="country">--}}
+                                        {{--<label>Hubungan Mahram/Pendamping <span class="text-danger">*</span></label>--}}
+                                        {{--<select class="form-control relation_type" name="data[{{ $i }}][relation_type]" id="country">--}}
                                             {{--<option value="" selected="">Pilih Hubungan</option>--}}
                                             {{--<option value="istri">Istri</option>--}}
                                             {{--<option value="suami">Suami</option>--}}
@@ -224,90 +321,7 @@
                                 {{--</div>--}}
                             {{--</div>--}}
                         {{--</div>--}}
-
-
-
-                        @for ($i = 1; $i <= $package->master_room_value-1; $i++)
-                        <div class="booking-content booking-content-template" id="booking-content-template">
-                            <div class="form-title">
-                                <span class="person-number">{{$i+1}}</span>
-                                @php
-
-                                $personNumber = 0;
-                                if($i == 0){
-                                    $personNumber = 'Pertama';
-                                }else if($i == 1){
-                                    $personNumber = 'Kedua';
-                                }else if($i == 2){
-                                    $personNumber = 'Ketiga';
-                                }else if($i == 3){
-                                    $personNumber = 'Keempat';
-                                }
-
-                                @endphp
-                                <h3 class="person-number-text">Jamaah {{$personNumber}}</h3>
-                            </div>
-                            <div class="row">
-                                <div class="col-sm-6">
-                                    <div class="form-group">
-                                        <label>Nama Depan <span class="text-danger">*</span></label>
-                                        <input type="text" class="form-control first_name" name="data[{{ $i }}][first_name]">
-                                    </div>
-                                </div>
-                                <div class="col-sm-6">
-                                    <div class="form-group">
-                                        <label>Nama Belakang <span class="text-danger">*</span></label>
-                                        <input type="text" class="form-control last_name" name="data[{{ $i }}][last_name]">
-                                    </div>
-                                </div>
-                                <div class="col-sm-6">
-                                    <div class="form-group">
-                                        <label>Jenis Kelamin <span class="text-danger">*</span></label>
-                                        <select class="form-control gender" name="data[{{ $i }}][gender]" id="gender">
-                                            <option value="" selected="">Pilih Jenis Kelamin</option>
-                                            <option value="M">Pria</option>
-                                            <option value="F">Wanita</option>
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="col-sm-6">
-                                    <div class="form-group">
-                                        <label>Nomor Ktp <span class="text-danger">*</span></label>
-                                        <input type="text" class="form-control nik_number" name="data[{{ $i }}][nik_number]">
-                                    </div>
-                                </div>
-                                <div class="col-sm-6">
-                                    <div class="form-group">
-                                        <label>Nomor Handphone <span class="text-danger">*</span></label>
-                                        <input type="text" class="form-control phone_number" name="data[{{ $i }}][phone_number]">
-                                    </div>
-                                </div>
-                                <div class="col-sm-6">
-                                    <div class="form-group">
-                                        <label>Hubungan Mahram/Pendamping <span class="text-danger">*</span></label>
-                                        <select class="form-control relation_type" name="data[{{ $i }}][relation_type]" id="country">
-                                            <option value="" selected="">Pilih Hubungan</option>
-                                            <option value="istri">Istri</option>
-                                            <option value="suami">Suami</option>
-                                            <option value="anak">Anak</option>
-                                            <option value="ayah">Ayah</option>
-                                            <option value="ibu">Ibu</option>
-                                            <option value="adik">Adik</option>
-                                            <option value="kakak">Kakak</option>
-                                            <option value="mertua">Mertua</option>
-                                            <option value="saudara">Saudara</option>
-                                            <option value="lainya">Lainya</option>
-                                        </select>
-                                    </div>
-                                </div>
-
-                                {{--<div class="col-md-12">--}}
-                                    {{--<button type="button" class="btn btn-primary add-jamaah float-left">Tambah Jamaah</button>--}}
-                                    {{--<button type="button" class="btn btn-warning delete-jamaah float-right">Hapus Jamaah</button>--}}
-                                {{--</div>--}}
-                            </div>
-                        </div>
-                        @endfor
+                        {{--@endfor--}}
 
 
                     </div>
@@ -367,56 +381,160 @@
 @endsection
 @section('script')
     <script>
-        $(document).on('click', '.custom-checkbox',function(){
-            let component = $('#agent_code');
-            let hasHide = $(component).hasClass('hide-component');
-            console.log(hasHide);
-            if(hasHide){
-                $('#form_agent').removeClass('hide-component');
-                $('#agent_code').removeClass('hide-component');
-            }else{
-                $('#form_agent').addClass('hide-component');
-                $('#agent_code').addClass('hide-component');
-            }
-        });
+        validation();
         $(document).ready(function(){
+            $(document).on('click', '.custom-checkbox',function(){
+                let component = $('#agent_code');
+                let hasHide = $(component).hasClass('hide-component');
+                console.log(hasHide);
+                if(hasHide){
+                    $('#form_agent').removeClass('hide-component');
+                    $('#agent_code').removeClass('hide-component');
+                }else{
+                    $('#form_agent').addClass('hide-component');
+                    $('#agent_code').addClass('hide-component');
+                }
+            });
+
+            validation();
+            let maxVal = $('#room_val').text();
+
+            if(maxVal == 1){
+                $('.add-jamaah').hide();
+            }
 
             $(document).on('click','.add-jamaah',function(){
+                let countElements = $('.jamaah-conter').length+1;
+                validation();
                 let templateFoorm = $('#booking-content-template-hidden').clone();
                 $(templateFoorm).removeClass('booking-content-template-hidden');
                 $(templateFoorm).removeAttr('id');
                 $(templateFoorm).addClass('jamaah-conter');
+
+                $(templateFoorm).find('.input-data').each(function (el,dt) {
+                    let id = $(this).attr('id');
+                    $(dt).attr('id',id+'_'+(countElements-1));
+                    $(dt).removeClass('input-data');
+                    $(dt).attr('name','data['+(countElements-1)+']['+id+']');
+                });
                 $(templateFoorm).appendTo('.data-jamaah');
 
-                let countElements = $('.jamaah-conter').length;
+                validation();
+
+
                 let jamaahPerson = numberPerson(countElements);
                 $(templateFoorm).find('.person-number').text(countElements);
                 $(templateFoorm).find('.person-number-text').text(jamaahPerson);
                 $(templateFoorm).addClass('jamaah-conter-'+countElements);
 
-                if(countElements > 2){
+                if(countElements > 1){
                     $(this).parent().find('.delete-jamaah').hide();
 
                 }
                 $(this).hide();
 
-                if(countElements >= 4){
+                if(countElements >= maxVal){
                     $(templateFoorm).find('.add-jamaah').hide();
                 }
             });
 
             $(document).on('click','.delete-jamaah',function(){
+                validation();
                 let counter = $(this).closest('.booking-content').find('.person-number').text();
                 let counterNow = counter - 1;
                 let jamaahElem = $('.jamaah-conter-'+counterNow);
-                if(counterNow == 2){
+                if(counterNow == 1){
                     let jamaahFirstElem = $('.first-jamaah');
                     $(jamaahFirstElem).find('.add-jamaah').show();
                 }
                 $(jamaahElem).find('.add-jamaah').show();
                 $(jamaahElem).find('.delete-jamaah').show();
                 $(this).closest('.booking-content').remove();
-            })
+            });
+
+
+            $(document).on('click','#submit-booking',function(e){
+                let valid = $("#myForm").valid();
+                if(valid){
+                    $.confirm({
+                        title: 'Konfirmasi!',
+                        theme: 'material',
+                        columnClass: 'col-md-6',
+                        content: 'Pastikan data yang anda masukkan sudah benar dan valid',
+                        buttons: {
+                            confirm: {
+                                text: 'Konfirmasi',
+                                btnClass: 'btn-blue',
+                                action: function(){
+                                    // $('#myForm').submit();
+                                    let formToken = $('input[name="_token"]').val();
+                                    let formMethod = $('input[name="_method"]').val();
+                                    let agentCode = $('#agent_code').val();
+                                    $.ajax({
+                                        url: '{{ route('user.findCOde') }}',
+                                        type: 'POST',
+                                        data: {
+                                            _token:formToken,
+                                            _method:formMethod,
+                                            data : agentCode
+                                        },
+                                        success: function( data, status, xhr ) {
+                                           if(!data){
+                                               $.confirm({
+                                                   columnClass: 'col-md-6',
+                                                   title: 'Terjadi Kesalahan!',
+                                                   content: '<p>Maaf kode agen (<b>'+agentCode+'</b>) tidak ditemukan.</p>',
+                                                   type: 'red',
+                                                   typeAnimated: true,
+                                                   buttons: {
+                                                       ok: {
+                                                           text: 'Konfirmasi',
+                                                           btnClass: 'btn-red',
+                                                           action: function(){
+                                                           }
+                                                       }
+                                                   }
+                                               });
+                                               return;
+                                           }else{
+                                               $('#myForm').submit();
+                                           }
+                                        },
+                                        error: function( data, status ) {
+                                            if ( status === 422 ) {
+                                                return false;
+                                            }
+                                        }
+                                    });
+                                }
+                            },
+                            cancel:{
+                                text: 'Cek lagi',
+                                action: function(){
+                                    return;
+                                }
+                            }
+                        }
+                    });
+                }else{
+                    $.confirm({
+                        columnClass: 'col-md-6',
+                        title: 'Terjadi Kesalahan!',
+                        content: 'Mohon isi semua data yang diperlukan.',
+                        type: 'red',
+                        typeAnimated: true,
+                        buttons: {
+                            ok: {
+                                text: 'Konfirmasi',
+                                btnClass: 'btn-red',
+                                action: function(){
+                                }
+                            }
+                        }
+                    });
+                }
+            });
+
         });
 
         function numberPerson(counter){
@@ -429,6 +547,75 @@
             } else if(counter == 4){
                 return 'Jamaah Keempat';
             }
+        }
+
+        function validation(){
+            $("#myForm").validate({ errorElement: 'div' });
+
+            $('select[id^="payment_type"]').each(function () {
+                // console.log(this);
+                $(this).rules('add', {
+                    required: true,
+                    messages: {
+                        required: "Jenis pembayaran harus diisi.",
+                    }
+                })
+            });
+
+            $('input[id^="first_name_"]').each(function () {
+                console.log(this);
+                $(this).rules('add', {
+                    required: true,
+                    messages: {
+                        required: "Nama depan harus diisi.",
+                    }
+                })
+            });
+
+            $('input[id^="last_name_"]').each(function () {
+                $(this).rules('add', {
+                    required: true,
+                    messages: {
+                        required: "Nama belakang harus diisi.",
+                    }
+                })
+            });
+
+            $('select[id^="gender_"]').each(function () {
+                $(this).rules('add', {
+                    required: true,
+                    messages: {
+                        required: "Jenis kelamin harus diisi.",
+                    }
+                })
+            });
+
+            $('input[id^="nik_number_"]').each(function () {
+                $(this).rules('add', {
+                    required: true,
+                    messages: {
+                        required: "Nomor KTP harus diisi.",
+                    }
+                })
+            });
+
+            $('input[id^="phone_number_"]').each(function () {
+                $(this).rules('add', {
+                    required: true,
+                    messages: {
+                        required: "Nomor HP harus diisi.",
+                    }
+                })
+            });
+
+            $('select[id^="relation_type_"]').each(function () {
+                $(this).rules('add', {
+                    required: true,
+                    messages: {
+                        required: "Hubungan mahram/pendamping harus diisi.",
+                    }
+                })
+            });
         }
     </script>
 

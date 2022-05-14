@@ -75,7 +75,7 @@
                                 <div class="col-sm-6">
                                     <div class="form-group">
                                         <label>Jenis Kelamin*</label>
-                                        <input type="text" class="form-control last_name" name="data[{{ $i }}][last_name]" value="{{ ($detail->gender == 'M') ? 'Pria' : 'Wanita'  }}" readonly="readonly">
+                                        <input type="text" class="form-control last_name" name="data[{{ $i }}][last_name]" value="{{ ($detail->gender == 'M') ? 'Laki Laki' : 'Perempuan'  }}" readonly="readonly">
                                     </div>
                                 </div>
                                 <div class="col-sm-6">

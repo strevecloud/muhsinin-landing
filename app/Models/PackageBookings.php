@@ -25,4 +25,9 @@ class PackageBookings extends Model
         return $this->belongsTo(MasterPaymentType::class,'payment_type_id');
     }
 
+    public function payment()
+    {
+        return $this->hasOne(Payments::class,'booking_id');
+    }
+
 }

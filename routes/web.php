@@ -62,3 +62,18 @@ Route::get('/search', array(
     'as'    => 'search.index',
     'uses'  => 'Frontend\SearchController@index'
 ));
+
+Route::get('/search', array(
+    'as'    => 'search.index',
+    'uses'  => 'Frontend\SearchController@index'
+));
+
+Route::post('/user/find-code', array(
+    'as'    => 'user.findCOde',
+    'uses'  => 'Frontend\UserController@findCode'
+));
+
+Route::post('/payment', array(
+    'as'    => 'payment.store',
+    'uses'  => 'Frontend\PaymentsController@store'
+));
