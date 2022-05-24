@@ -88,6 +88,7 @@
 {!! Html::script('assets/js/jquery.slicknav.js') !!}
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.2.0/js/bootstrap-datepicker.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.4/jquery-confirm.min.js"></script>
+<script src="{{ asset('js/share.js') }}"></script>
 {!! Html::script('assets/js/custom.js') !!}
 @yield('script')
 
