@@ -73,3 +73,10 @@
         </div>
     </div>
 @endsection
+@section('script')
+    <script>
+        $(document).ready(function(){
+            $('#image_data').attr('content','{{ getImageUrl($package->basic_package_photos)}}');
+        });
+    </script>
+@endsection
