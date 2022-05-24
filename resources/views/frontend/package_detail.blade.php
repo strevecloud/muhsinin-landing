@@ -1,4 +1,6 @@
 @extends('layout.master')
+@section('meta_image', getImageUrl($package->basic_package_photos))
+@section('meta_description', $package->basic_package_name.' '.getDateIndoShort($package->basic_package_depature_date))
 
 @section('content')
     @include('frontend.partials.banner_image',['title' => 'Detail Paket'])
@@ -72,11 +74,4 @@
             </div>
         </div>
     </div>
-@endsection
-@section('script')
-    <script>
-        $(document).ready(function(){
-            $('#image_data').attr('content','{{ getImageUrl($package->basic_package_photos)}}');
-        });
-    </script>
 @endsection

@@ -5,10 +5,10 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="a" />
-    <meta property="og:title" content="b" />
+    <meta property="og:title" content="Paket Muhsinin Travel" />
     <meta property="og:url" content="https://muhsinintravel.com" />
-    <meta property="og:description" content="c" />
-    <meta property="og:image" id="image_data" content="{{ asset('assets/images/muhsinin-logo-white.png')}}" />
+    <meta property="og:description" content="@yield('meta_description')" />
+    <meta property="og:image" content="@yield('meta_image')" />
     <meta property="og:type" content="article" />
 
     <!-- favicon -->
