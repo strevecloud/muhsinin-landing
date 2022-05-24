@@ -372,7 +372,7 @@
                                 <input type="submit" id="submit-booking" name="submit" value="Pesan Sekarang">
                             </div>
                         </div>
-                        @include('frontend.partials.helpdesk_number')
+                        @include('frontend.partials.helpdesk_number',['phone' => $package->master_office_phone])
                     </aside>
                 </div>
             </div>

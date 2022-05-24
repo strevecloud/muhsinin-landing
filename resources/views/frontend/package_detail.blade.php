@@ -58,7 +58,8 @@
                                     <div class="col-sm-12 text-center">
                                         <div class="form-group submit-btn">
                                             <div class="text-center">
-                                                <a href="{{ route('booking.show',[$package->branch_package_detail_id]) }}" class="button-primary">Booking</a>
+                                                <a href="https://api.whatsapp.com/send?text={{urlencode(url()->current()) }}" class="button-secondary pull-left"> <i class="fab fa-whatsapp fa-lg"></i> Bagikan</a>
+                                                <a href="{{ route('booking.show',[$package->branch_package_detail_id]) }}" class="button-primary pull-right"> <i class="fa fa-book fa-lg"></i> Booking</a>
                                             </div>
                                         </div>
                                     </div>

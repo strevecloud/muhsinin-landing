@@ -44,6 +44,7 @@
                                                 <div class="input-group-prepend">
                                                     <div class="input-group-text"><i class="fa fa-xs fa-bed"></i></div>
                                                     <select class="form-control" name="room_type" id="room_type">
+                                                        <option value="">Silahkan Pilih</option>
                                                         @foreach($rooms as $room)
                                                             <option {{ @request()->room_type == $room->id ? "selected" : "" }} value="{{ $room->id }}">{{ $room->name }}</option>
                                                         @endforeach

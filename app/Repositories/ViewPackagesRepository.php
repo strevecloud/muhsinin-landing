@@ -33,7 +33,9 @@ class ViewPackagesRepository
         }
         $dateNow = Carbon::now();
         $query = ViewPackages::with('offering.offeringHotel')->where('master_office_id','=',$request->input('city_branch'));
-        $query->where('master_room_id','=',$request->input('room_type'));
+        if($request->input('room_type')){
+            $query->where('master_room_id','=',$request->input('room_type'));
+        }
         if($month > 0){
             $query->whereMonth('basic_package_depature_date','=',$month);
             $query->whereYear('basic_package_depature_date','=',$year);

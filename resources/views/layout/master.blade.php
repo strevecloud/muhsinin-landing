@@ -4,6 +4,12 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Muhsinin Travel, Temukan paket umroh yang Anda inginkan." />
+    <meta property="og:title" content="Muhsinin Travel, Temukan paket umroh yang Anda inginkan." />
+    <meta property="og:url" content="https://muhsinintravel.com" />
+    <meta property="og:description" content="Muhsinin Travel, Temukan paket umroh yang Anda inginkan." />
+    <meta property="og:image" content="{{ asset('assets/images/muhsinin-logo-white.png')}}" />
+    <meta property="og:type" content="article" />
 
     <!-- favicon -->
     <link rel="icon" type="image/png" href="{{ asset('assets/images/favicon.png')}}">

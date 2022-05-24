@@ -8,7 +8,7 @@
             <div class="input-group col-md-3">
                 <div class="col-sm-12">
                     <div class="form-group">
-                        <label> Lokasi Keberangkatan* </label>
+                        <label> Lokasi Keberangkatan <span class="text-danger">*</span> </label>
 
                         <select class="form-control" name="city_branch" id="city_branch">
                             @foreach($offices as $office)
@@ -21,8 +21,9 @@
             <div class="input-group col-md-3">
                 <div class="col-sm-12">
                     <div class="form-group">
-                        <label> Tipe Kamar* </label>
+                        <label> Tipe Kamar</label>
                         <select class="form-control" name="room_type" id="room_type">
+                            <option value="">Silahkan Pilih</option>
                             @foreach($rooms as $room)
                                 <option {{ @request()->room_type == $room->id ? "selected" : "" }} value="{{ $room->id }}">{{ $room->name }}</option>
                             @endforeach
@@ -33,7 +34,7 @@
             <div class="input-group col-md-3">
                 <div class="col-sm-12">
                     <div class="form-group">
-                        <label> Waktu Keberangkatan* </label>
+                        <label> Waktu Keberangkatan</label>
                         <i class="far fa-calendar"></i>
                         <input class="input-date-picker date-picker" name="departure_date" value="{{ @request()->departure_date }}" id="datepicker" type="text" name="s" placeholder="MM-YY" autocomplete="off" readonly="readonly">
                     </div>

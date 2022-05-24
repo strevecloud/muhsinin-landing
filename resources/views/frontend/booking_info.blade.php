@@ -157,7 +157,7 @@
                                 </tbody>
                             </table>
                         </div>
-                        @include('frontend.partials.helpdesk_number')
+                        @include('frontend.partials.helpdesk_number',['phone' => $helpPhone])
                     </aside>
                 </div>
             </div>

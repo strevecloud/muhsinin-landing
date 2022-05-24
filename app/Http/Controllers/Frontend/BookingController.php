@@ -10,6 +10,7 @@ use App\Repositories\ViewPackagesRepository;
 use App\Repositories\PackageBookingRepository;
 use App\Repositories\MasterPaymentTypeRepository;
 use App\Repositories\PaymentsRepository;
+use App\Repositories\UserRepository;
 
 class BookingController extends Controller
 {
@@ -20,6 +21,7 @@ class BookingController extends Controller
     protected $packageBookingRepository;
     protected $paymentTypeRepository;
     protected $paymentRepository;
+    protected $userRepository;
 
     public function __construct()
     {
@@ -29,6 +31,7 @@ class BookingController extends Controller
         $this->packageBookingRepository = new PackageBookingRepository();
         $this->paymentTypeRepository = new MasterPaymentTypeRepository();
         $this->paymentRepository = new PaymentsRepository();
+        $this->userRepository = new UserRepository();
     }
 
     /**
@@ -79,20 +82,31 @@ class BookingController extends Controller
 
     public function detail($code){
 
+        $helpPhone = null;
         $booking = $this->packageBookingRepository->getByCode($code);
         $bookingDetail = $this->packageBookingRepository->getDetailByPackageBookingId($booking->id);
         $package = $this->viewPackagesRepository->getByBranchPackageDetailId($booking->branch_package_detail_id);
+        if($booking->agent_id){
+            $helpPhone = $this->userRepository->userFindById($booking->agent_id)->phone_number;
+        }else{
+            $helpPhone = $package->master_office_phone;
+        }
         $payment = $this->paymentRepository->findByBookingByCode($code);
 
-        return view('frontend/booking_detail', compact('booking','bookingDetail','package','payment'));
+        return view('frontend/booking_detail', compact('booking','bookingDetail','package','payment','helpPhone'));
     }
 
     public function info($code){
         $booking = $this->packageBookingRepository->getByCode($code);
         $bookingDetails = $this->packageBookingRepository->getAllDetailByPackageBookingId($booking->id);
         $package = $this->viewPackagesRepository->getByBranchPackageDetailId($booking->branch_package_detail_id);
+        if($booking->agent_id){
+            $helpPhone = $this->userRepository->userFindById($booking->agent_id)->phone_number;
+        }else{
+            $helpPhone = $package->master_office_phone;
+        }
 
-        return view('frontend/booking_info', compact('booking','bookingDetails','package'));
+        return view('frontend/booking_info', compact('booking','bookingDetails','package','helpPhone'));
     }
 
     /**
