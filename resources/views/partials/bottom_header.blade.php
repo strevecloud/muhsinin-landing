@@ -11,10 +11,10 @@
             <nav id="navigation" class="navigation pull-right">
                 <ul>
                     <li class="menu-item">
-                        <a href="index.html">Home</a>
+                        <a href="/">Home</a>
                     </li>
                     <li class="menu-item">
-                        <a href="index.html">Paket</a>
+                        <a href="/package">Paket</a>
                     </li>
                     {{--<li class="menu-item-has-children">--}}
                         {{--<a href="#">Tour</a>--}}
@@ -174,10 +174,10 @@
                 <nav id="navigation" class="navigation pull-right">
                 <ul>
                     <li class="menu-item">
-                        <a href="index.html">Home</a>
+                        <a href="/">Home</a>
                     </li>
                     <li class="menu-item">
-                        <a href="index.html">Paket</a>
+                        <a href="/package">Paket</a>
                     </li>
                 </ul>
                 </nav>
