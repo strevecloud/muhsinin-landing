@@ -30,7 +30,7 @@
                                 </ul>
                             </div>
                         </figure>
-                        @include('frontend.partials.package_info_tab', $package)
+                        @include('frontend.partials.package_info_tab', ['package' => $package,'itinerary' => $itinerary])
                     </div>
                 </div>
                 <div class="col-lg-4">

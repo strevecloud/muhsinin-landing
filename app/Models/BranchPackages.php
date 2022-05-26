@@ -26,4 +26,9 @@ class BranchPackages extends Model
     {
         return $this->belongsTo(BasicPackages::class,'basic_package_id');
     }
+
+    public function itinerary()
+    {
+        return $this->hasOne(BranchPackageItineraries::class,'itenary_id');
+    }
 }

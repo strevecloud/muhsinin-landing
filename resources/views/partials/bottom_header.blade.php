@@ -7,17 +7,15 @@
                 </a>
             </h1>
         </div>
-        {{--<div class="main-navigation d-none d-lg-block">--}}
-            {{--<nav id="navigation" class="navigation">--}}
-                {{--<ul>--}}
-                    {{--<li class="menu-item-has-children">--}}
-                        {{--<a href="index.html">Home</a>--}}
-                        {{--<ul>--}}
-                            {{--<li>--}}
-                                {{--<a href="index-v2.html">Home 2</a>--}}
-                            {{--</li>--}}
-                        {{--</ul>--}}
-                    {{--</li>--}}
+        <div class="main-navigation d-none d-lg-block navigation-mobile">
+            <nav id="navigation" class="navigation pull-right">
+                <ul>
+                    <li class="menu-item">
+                        <a href="index.html">Home</a>
+                    </li>
+                    <li class="menu-item">
+                        <a href="index.html">Paket</a>
+                    </li>
                     {{--<li class="menu-item-has-children">--}}
                         {{--<a href="#">Tour</a>--}}
                         {{--<ul>--}}
@@ -168,11 +166,26 @@
                             {{--</li>--}}
                         {{--</ul>--}}
                     {{--</li>--}}
-                {{--</ul>--}}
-            {{--</nav>--}}
-        {{--</div>--}}
+                </ul>
+            </nav>
+        </div>
         <div class="header-btn">
-            <a href="{{ route('search.index') }}" class="button-primary">Pencarian</a>
+            <div class="main-navigation d-none d-lg-block">
+                <nav id="navigation" class="navigation pull-right">
+                <ul>
+                    <li class="menu-item">
+                        <a href="index.html">Home</a>
+                    </li>
+                    <li class="menu-item">
+                        <a href="index.html">Paket</a>
+                    </li>
+                </ul>
+                </nav>
+            </div>
+
+            <div class="header-btn btn-search">
+                <a href="{{ route('search.index') }}" class="btn-search button-primary">Pencarian</a>
+            </div>
         </div>
     </div>
 </div>

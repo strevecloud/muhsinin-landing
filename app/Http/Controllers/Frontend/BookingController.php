@@ -11,6 +11,7 @@ use App\Repositories\PackageBookingRepository;
 use App\Repositories\MasterPaymentTypeRepository;
 use App\Repositories\PaymentsRepository;
 use App\Repositories\UserRepository;
+use App\Repositories\BranchPackageRepository;
 
 class BookingController extends Controller
 {
@@ -22,6 +23,8 @@ class BookingController extends Controller
     protected $paymentTypeRepository;
     protected $paymentRepository;
     protected $userRepository;
+    protected $branchPackageRepository;
+
 
     public function __construct()
     {
@@ -32,6 +35,7 @@ class BookingController extends Controller
         $this->paymentTypeRepository = new MasterPaymentTypeRepository();
         $this->paymentRepository = new PaymentsRepository();
         $this->userRepository = new UserRepository();
+        $this->branchPackageRepository = new BranchPackageRepository();
     }
 
     /**
@@ -77,7 +81,8 @@ class BookingController extends Controller
     {
         $paymentTypes = $this->paymentTypeRepository->masterPaymentTypeAll();
         $package = $this->viewPackagesRepository->getByBranchPackageDetailId($id);
-        return view('frontend/booking', compact('package','paymentTypes'));
+        $itinerary = $this->branchPackageRepository->branchPackageByDetailId($id);
+        return view('frontend/booking', compact('package','paymentTypes','itinerary'));
     }
 
     public function detail($code){
@@ -105,8 +110,9 @@ class BookingController extends Controller
         }else{
             $helpPhone = $package->master_office_phone;
         }
+        $itinerary = $this->branchPackageRepository->branchPackageByDetailId($booking->branch_package_detail_id);
 
-        return view('frontend/booking_info', compact('booking','bookingDetails','package','helpPhone'));
+        return view('frontend/booking_info', compact('booking','bookingDetails','package','helpPhone','itinerary'));
     }
 
     /**

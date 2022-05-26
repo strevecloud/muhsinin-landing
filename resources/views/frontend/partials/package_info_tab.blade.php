@@ -136,39 +136,20 @@
         </div>
         <div class="tab-pane" id="program" role="tabpanel" aria-labelledby="program-tab">
             <div class="itinerary-content">
-                <h3>Program <span>( 4 days )</span></h3>
-                <p>Dolores maiores dicta dolore. Natoque placeat libero sunt sagittis debitis? Egestas non non qui quos, semper aperiam lacinia eum nam! Pede beatae. Soluta, convallis irure accusamus voluptatum ornare saepe cupidatat.</p>
+                <h3>{{ $itinerary->title }} <span>( {{ @$package->basic_package_duration }} Hari )</span></h3>
+                {{--<p>Dolores maiores dicta dolore. Natoque placeat libero sunt sagittis debitis? Egestas non non qui quos, semper aperiam lacinia eum nam! Pede beatae. Soluta, convallis irure accusamus voluptatum ornare saepe cupidatat.</p>--}}
             </div>
             <div class="itinerary-timeline-wrap">
                 <ul>
+                    @foreach($itinerary->detail as $detail)
                     <li>
                         <div class="timeline-content">
-                            <div class="day-count">Day <span>1</span></div>
-                            <h4>Ancient Rome Visit</h4>
-                            <p>Nostra semper ultricies eu leo eros orci porta provident, fugit? Pariatur interdum assumenda, qui aliquip ipsa! Dictum natus potenti pretium.</p>
+                            <div class="day-count"> <span>{{ $detail->sequence }}</span></div>
+                            <h4>{{ $detail->program }}</h4>
+                            <p>{{ $detail->description }}</p>
                         </div>
                     </li>
-                    <li>
-                        <div class="timeline-content">
-                            <div class="day-count">Day <span>2</span></div>
-                            <h4>Classic Rome Sightseeing</h4>
-                            <p>Nostra semper ultricies eu leo eros orci porta provident, fugit? Pariatur interdum assumenda, qui aliquip ipsa! Dictum natus potenti pretium.</p>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="timeline-content">
-                            <div class="day-count">Day <span>3</span></div>
-                            <h4>Vatican City Visit</h4>
-                            <p>Nostra semper ultricies eu leo eros orci porta provident, fugit? Pariatur interdum assumenda, qui aliquip ipsa! Dictum natus potenti pretium.</p>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="timeline-content">
-                            <div class="day-count">Day <span>4</span></div>
-                            <h4>Italian Food Tour</h4>
-                            <p>Nostra semper ultricies eu leo eros orci porta provident, fugit? Pariatur interdum assumenda, qui aliquip ipsa! Dictum natus potenti pretium.</p>
-                        </div>
-                    </li>
+                    @endforeach
                 </ul>
             </div>
         </div>

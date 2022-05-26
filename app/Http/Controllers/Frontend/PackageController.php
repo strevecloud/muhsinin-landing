@@ -7,17 +7,21 @@ use App\Http\Controllers\Controller;
 use App\Repositories\MasterRoomRepository;
 use App\Repositories\MasterOfficeRepository;
 use App\Repositories\ViewPackagesRepository;
+use App\Repositories\BranchPackageRepository;
+use App\Repositories\BranchPackageItineraryRepository;
 use Illuminate\Pagination\LengthAwarePaginator;
 
 class PackageController extends Controller
 {
 
-    protected $roomRepository,$officeRepository,$packageDetailRepository,$viewPackagesRepository;
+    protected $roomRepository,$officeRepository,$packageDetailRepository,$viewPackagesRepository,$branchPackageRepository,$branchPackageItineraryRepository;
     public function __construct()
     {
         $this->roomRepository = new MasterRoomRepository();
         $this->officeRepository = new MasterOfficeRepository();
         $this->viewPackagesRepository = new ViewPackagesRepository();
+        $this->branchPackageRepository = new BranchPackageRepository();
+        $this->branchPackageItineraryRepository = new BranchPackageItineraryRepository();
     }
 
     /**
@@ -72,7 +76,8 @@ class PackageController extends Controller
     public function show($id)
     {
         $package = $this->viewPackagesRepository->getByBranchPackageDetailId($id);
-        return view('frontend/package_detail', compact('package'));
+        $itinerary = $this->branchPackageRepository->branchPackageByDetailId($id);
+        return view('frontend/package_detail', compact('package','itinerary'));
     }
 
     /**
