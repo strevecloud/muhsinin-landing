@@ -6,9 +6,11 @@
         <li class="nav-item">
             <a class="nav-link" id="overview-tab" data-toggle="tab" href="#overview" role="tab" aria-controls="overview" aria-selected="false">Fasilitas</a>
         </li>
+        @if($itinerary)
         <li class="nav-item">
             <a class="nav-link" id="program-tab" data-toggle="tab" href="#program" role="tab" aria-controls="program" aria-selected="false">Rencana Perjalanan</a>
         </li>
+        @endif
         <li class="nav-item">
             <a class="nav-link" id="map-tab" data-toggle="tab" href="#map" role="tab" aria-controls="map" aria-selected="false">Syarat & Ketentuan</a>
         </li>
@@ -136,7 +138,8 @@
                 </ol>
             </div>
         </div>
-        <div class="tab-pane" id="program" role="tabpanel" aria-labelledby="program-tab">
+        @if($itinerary)
+            <div class="tab-pane" id="program" role="tabpanel" aria-labelledby="program-tab">
             <div class="itinerary-content">
                 <h3>{{ @$itinerary->title }} <span>( {{ @$package->basic_package_duration }} Hari )</span></h3>
                 {{--<p>Dolores maiores dicta dolore. Natoque placeat libero sunt sagittis debitis? Egestas non non qui quos, semper aperiam lacinia eum nam! Pede beatae. Soluta, convallis irure accusamus voluptatum ornare saepe cupidatat.</p>--}}
@@ -155,6 +158,7 @@
                 </ul>
             </div>
         </div>
+        @endif
         <div class="tab-pane" id="map" role="tabpanel" aria-labelledby="map-tab">
             <div class="map-area">
                 <div class="overview-content">
