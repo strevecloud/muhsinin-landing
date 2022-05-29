@@ -13,8 +13,8 @@
                         <div class="sidebar">
                             <div class="widget-bg booking-form-wrap">
                                 <h4 class="bg-title">Filter</h4>
-                                <form class="booking-form" method="post">
-                                    @csrf
+                                <form class="booking-form" method="get">
+                                    {{--@csrf--}}
                                     <div class="row">
                                         <div class="col-sm-12">
                                             <div class="form-group">
@@ -54,7 +54,7 @@
                                         </div>
                                         <div class="col-sm-12">
                                             <div class="form-group text-center submit-btn">
-                                                <input type="submit" name="submit" value="Cari Paket">
+                                                <input type="submit" value="Cari Paket">
                                             </div>
                                         </div>
                                     </div>

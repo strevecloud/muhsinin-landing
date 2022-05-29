@@ -118,11 +118,13 @@
 
                 <b>Harga Tidak Termasuk :</b>
                 <ol>
-                    <li>Passport</li>
-                    <li>Suntik Meningitis</li>
+                    @if($package->master_office_code != 'pusat')
+                        <li>Passport</li>
+                        <li>Suntik Meningitis</li>
+                        <li>Tiket Domestik dari dan ke Daerah</li>
+                    @endif
                     <li>Kelebihan berat bagasi menurut ketentuan penerbangan </li>
                     <li>Keperluan pribadi (laundry, telp , tips, dan lain-lain)</li>
-                    <li>Tiket Domestik dari dan ke Daerah</li>
                     <li>Kursi roda dan pemandu khusus </li>
                     <li>Akomodasi hotel dan transportasi di Jakarta</li>
                     <li>City Tour Khaibar Rp 680,000/orang</li>
