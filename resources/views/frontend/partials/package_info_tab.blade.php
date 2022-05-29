@@ -138,7 +138,7 @@
         </div>
         <div class="tab-pane" id="program" role="tabpanel" aria-labelledby="program-tab">
             <div class="itinerary-content">
-                <h3>{{ $itinerary->title }} <span>( {{ @$package->basic_package_duration }} Hari )</span></h3>
+                <h3>{{ @$itinerary->title }} <span>( {{ @$package->basic_package_duration }} Hari )</span></h3>
                 {{--<p>Dolores maiores dicta dolore. Natoque placeat libero sunt sagittis debitis? Egestas non non qui quos, semper aperiam lacinia eum nam! Pede beatae. Soluta, convallis irure accusamus voluptatum ornare saepe cupidatat.</p>--}}
             </div>
             <div class="itinerary-timeline-wrap">
