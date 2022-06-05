@@ -124,7 +124,7 @@ class GeneratePdfJob implements ShouldQueue
         if(getenv('ENVIRONMENT_OS') == 'OSX'){
             shell_exec('/Applications/LibreOffice.app/Contents/MacOS/soffice --headless --convert-to pdf '.$filePath.'.docx'.' --outdir '.public_path().'/'.$folderName.'/');
         }elseif (getenv('ENVIRONMENT_OS') == 'LINUX'){
-            shell_exec('libreoffice6.3 --headless --convert-to pdf '.$filePath.'.docx'.' --outdir '.public_path().'/'.$folderName.'/');
+            shell_exec('libreoffice7.3 --headless --convert-to pdf '.$filePath.'.docx'.' --outdir '.public_path().'/'.$folderName.'/');
         }
 
         @unlink(public_path().'/'.$folderName.'/'.$fileName.'.docx');
