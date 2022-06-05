@@ -171,6 +171,9 @@
                                                         Jumlah Terkonfirmasi
                                                     </th>
                                                     <th class="text-center">
+                                                        Download Nota
+                                                    </th>
+                                                    <th class="text-center">
                                                         Status
                                                     </th>
                                                     <th class="text-center">
@@ -204,6 +207,13 @@
                                                         </td>
                                                         <td>
                                                             <input type="text" id="amount_1" style="text-align: right;width:auto" value="Rp {{ @get_currency($history->amount) ?? 0 }}" class="form-control readonly input"/>
+                                                        </td>
+                                                        <td class="text-center">
+                                                            @if(@$history->status == 'APPROVED' && @$history->payment_slip != "")
+                                                                <a class="btn btn-outline-info download" style="width:auto" id="payment_slip_1" href="{{ route('booking.downloadPdf',['id' => $history->id]) }}" rel="nofollow">Download</a>
+                                                            @else
+                                                                <button type="button" style="width:auto" id="payment_slip_1" class="btn btn-outline-secondary">Belum Tersedia</button>
+                                                            @endif
                                                         </td>
                                                         <td>
                                                             @php
@@ -244,6 +254,9 @@
                                                             <input type="text" style="text-align: right;width:auto" id="amount_1" value="Rp. 0" class="form-control readonly input"/>
                                                         </td>
                                                         <td>
+                                                            <button type="button" style="width:auto" id="payment_slip_1" class="btn btn-outline-secondary">Belum Tersedia</button>
+                                                        </td>
+                                                        <td>
                                                             <input type="text" style="width:auto" id="status_1" value="Pending" class="form-control readonly input"/>
                                                         </td>
                                                         <td>
@@ -279,6 +292,7 @@
             $(first).find('.numbering').text(count);
             $(first).find('#note_1').attr('id', 'note_'+count);
             $(first).find('#file_1').attr('id', 'file_'+count);
+            $(first).find('#payment_slip_1').attr('id', 'payment_slip_'+count);
             $(first).find('#submit').attr('id', 'submit_'+count);
             $(first).find('#hidden_1').attr('id', 'hidden_'+count);
             $(first).find('#status_1').attr('id', 'status_'+count);
@@ -300,9 +314,29 @@
                 $(upload).attr('id','file_'+count);
                 $(upload).addClass('form-control');
                 $(upload).addClass('input');
+
                 let parent = $('#file_'+count).parent();
                 $('#file_'+count).first().remove();
                 $(upload).appendTo(parent);
+            }
+
+            let elemDownloadFile2 = $('#payment_slip_'+count);
+            $('#note_'+count).removeClass('readonly');
+
+            let hasDownloadFile2 = $(elemDownloadFile2).hasClass('download');
+
+            if(hasDownloadFile2){
+                let button = document.createElement('button');
+                $(button).attr('type', 'button');
+                $(button).attr('id','payment_slip_'+count);
+                $(button).attr('style','width:auto');
+                $(button).addClass('btn');
+                $(button).addClass('btn-outline-secondary');
+                $(button).text('Belum Tersedia');
+
+                let parent = $('#payment_slip_'+count).parent();
+                $('#payment_slip_'+count).first().remove();
+                $(button).appendTo(parent);
             }
 
             let hasSubmit = $(elemSubmit).hasClass('submit');

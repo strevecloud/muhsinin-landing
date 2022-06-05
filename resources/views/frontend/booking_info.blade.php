@@ -33,6 +33,38 @@
                         @include('frontend.partials.package_info_tab', $package)
                     </div>
 
+
+                    <div class="booking-content">
+                        <div class="form-title">
+                            <h3>Tipe Pembayaran</h3>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <div class="form-group">
+                                    <label>Tipe Pembayaran <span class="text-danger">*</span></label>
+                                    <select class="form-control payment_type" name="payment_type" id="payment_type" readonly="readonly">
+                                        <option value="" selected="">{{$booking->paymentType->name}}</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="booking-content">
+                        <div class="form-title">
+                            <h3>Alamat Penagihan</h3>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <div class="form-group">
+                                    <label>Alamat Penagihan <span class="text-danger">*</span></label>
+                                    <textarea class="forrm-control billing_address" name="billing_address" id="billing_address" readonly="readonly">{{@$booking->billing_address}}</textarea>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
                     <form action="{{ route('booking.store',[$package->branch_package_detail_id]) }}" name="myForm" id="myForm" method="post">
                     @csrf
                     <div class="data-jamaah">

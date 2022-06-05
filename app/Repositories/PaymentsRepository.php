@@ -15,6 +15,11 @@ class PaymentsRepository
         return PackageBookings::with('payment.history')->where('booking_code',$code)->firstOrFail();
     }
 
+    public function findPaymentHistoryById($id)
+    {
+        return PaymentHistories::where('id','=',$id)->where('status','=','APPROVED')->firstOrFail();
+    }
+
     public function store($data)
     {
         try {

@@ -100,6 +100,21 @@
                         </div>
 
 
+                        <div class="booking-content">
+                            <div class="form-title">
+                                <h3>Alamat Penagihan</h3>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <div class="form-group">
+                                        <label>Alamat Penagihan <span class="text-danger">*</span></label>
+                                        <textarea class="forrm-control billing_address" name="billing_address" id="billing_address"></textarea>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
 
                         <div class="booking-content jamaah-conter first-jamaah">
                             <div class="form-title">
@@ -195,7 +210,7 @@
                                         <select class="form-control input-data gender" id="gender">
                                             <option value="" selected="">Pilih Jenis Kelamin</option>
                                             <option value="M">Laki Laki</option>
-                                            <option value="F">Perrempuan</option>
+                                            <option value="F">Perempuan</option>
                                         </select>
                                     </div>
                                 </div>
@@ -372,7 +387,7 @@
                                 <input type="submit" id="submit-booking" name="submit" value="Pesan Sekarang">
                             </div>
                         </div>
-                        @include('frontend.partials.helpdesk_number',['phone' => $package->master_office_phone])
+                        TIPE PEMBAYARAN
                     </aside>
                 </div>
             </div>
@@ -479,7 +494,7 @@
                                             data : agentCode
                                         },
                                         success: function( data, status, xhr ) {
-                                           if(!data){
+                                           if(!data && agentCode){
                                                $.confirm({
                                                    columnClass: 'col-md-6',
                                                    title: 'Terjadi Kesalahan!',
@@ -562,8 +577,18 @@
                 })
             });
 
-            $('input[id^="first_name_"]').each(function () {
+            $('textarea[id^="billing_address"]').each(function () {
                 console.log(this);
+                $(this).rules('add', {
+                    required: true,
+                    messages: {
+                        required: "Alamat penagihan harus diisi.",
+                    }
+                })
+            });
+
+            $('input[id^="first_name_"]').each(function () {
+                // console.log(this);
                 $(this).rules('add', {
                     required: true,
                     messages: {

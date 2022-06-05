@@ -12,6 +12,8 @@ use App\Repositories\MasterPaymentTypeRepository;
 use App\Repositories\PaymentsRepository;
 use App\Repositories\UserRepository;
 use App\Repositories\BranchPackageRepository;
+use Response;
+use App\Events\GeneratePdf;
 
 class BookingController extends Controller
 {
@@ -113,6 +115,26 @@ class BookingController extends Controller
         $itinerary = $this->branchPackageRepository->branchPackageByDetailId($booking->branch_package_detail_id);
 
         return view('frontend/booking_info', compact('booking','bookingDetails','package','helpPhone','itinerary'));
+    }
+
+    public function generatePdfEvent($code,$history){
+        $data = [
+            'code' => $code,
+            'history' => $history
+        ];
+        event(new GeneratePdf($data));
+    }
+
+    public function downloadPdf($id){
+        $history = $this->paymentRepository->findPaymentHistoryById($id);
+
+        $file = $history->payment_slip;
+
+//        $headers = array(
+//            'Content-Type: application/pdf',
+//        );
+
+        return Response::download($file);
     }
 
     /**

@@ -7,6 +7,7 @@
 */
 use App\Models\Agent;
 use Illuminate\Support\Str;
+use Carbon\Carbon;
 
 if (! function_exists('user_info')) {
     /**
@@ -67,9 +68,7 @@ if (! function_exists('get_currency')) {
 
 if (! function_exists('create_date_from_format')) {
     function create_date_from_format($text = '',$format = 'd-m-Y H:i') {
-        $date = \Carbon\Carbon::createFromFormat($format,$text);
-
-        return $date;
+        return Carbon::parse($text)->format($format);
     }
 }
 

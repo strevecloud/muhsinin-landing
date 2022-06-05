@@ -23,6 +23,11 @@ Route::post('/', array(
     'uses'  => 'Frontend\FrontendController@index'
 ));
 
+Route::get('/privacy-policy', array(
+    'as'    => 'privacyPolicy',
+    'uses'  => 'Frontend\FrontendController@privacyPolicy'
+));
+
 Route::get('/package', array(
     'as'    => 'package.index',
     'uses'  => 'Frontend\PackageController@index'
@@ -76,4 +81,19 @@ Route::post('/user/find-code', array(
 Route::post('/payment', array(
     'as'    => 'payment.store',
     'uses'  => 'Frontend\PaymentsController@store'
+));
+
+Route::get('/booking/detail/generate/{code}/{history}', array(
+    'as'    => 'booking.generatedPdf',
+    'uses'  => 'Frontend\BookingController@generatePdf'
+));
+
+Route::get('/booking/detail/download/{id}', array(
+    'as'    => 'booking.downloadPdf',
+    'uses'  => 'Frontend\BookingController@downloadPdf'
+));
+
+Route::get('/booking/event/generate/pdf/{code}/{history}', array(
+    'as'    => 'booking.generatePdfEvent',
+    'uses'  => 'Frontend\BookingController@generatePdfEvent'
 ));

@@ -42,6 +42,12 @@ class FrontendController extends Controller
         return view('frontend/index',compact('rooms','offices','packageDetails','packages'));
     }
 
+
+    public function privacyPolicy()
+    {
+        return view('frontend/privacy_policy');
+    }
+
     public function packageDetail()
     {
         return view('frontend/package_detail');
