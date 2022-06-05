@@ -83,11 +83,6 @@ Route::post('/payment', array(
     'uses'  => 'Frontend\PaymentsController@store'
 ));
 
-Route::get('/booking/detail/generate/{code}/{history}', array(
-    'as'    => 'booking.generatedPdf',
-    'uses'  => 'Frontend\BookingController@generatePdf'
-));
-
 Route::get('/booking/detail/download/{id}', array(
     'as'    => 'booking.downloadPdf',
     'uses'  => 'Frontend\BookingController@downloadPdf'
