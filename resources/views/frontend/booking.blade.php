@@ -66,9 +66,9 @@
                                     <div class="form-group">
                                         <label>Silahkan pilih jika anda adalah seorang agen.</label>
                                         <label class="checkbox-list">
-                                            <input type="checkbox" class="checkbox-button" name="s">
-                                            <span class="custom-checkbox"></span>
+                                            <input type="checkbox" id="check" class="checkbox-button" name="s">
                                             Saya adalah agen.
+                                            <span class="custom-checkbox"></span>
                                         </label>
                                     </div>
 
@@ -398,11 +398,43 @@
     <script>
         validation();
         $(document).ready(function(){
+            // $(document).on('click', '.custom-checkbox',function(){
+            //     let component = $('#agent_code');
+            //     let hasHide = $(component).hasClass('hide-component');
+            //     console.log(hasHide);
+            //     if(hasHide){
+            //         $('#form_agent').removeClass('hide-component');
+            //         $('#agent_code').removeClass('hide-component');
+            //     }else{
+            //         $('#form_agent').addClass('hide-component');
+            //         $('#agent_code').addClass('hide-component');
+            //     }
+            // });
+
             $(document).on('click', '.custom-checkbox',function(){
-                let component = $('#agent_code');
-                let hasHide = $(component).hasClass('hide-component');
-                console.log(hasHide);
-                if(hasHide){
+                if ($('#check').is(':checked') !== true) {
+                    $('#check').checked = true;
+                } else {
+                    $('#check').checked = false;
+                }
+
+                if($('#check').is(':checked') === true){
+                    $('#form_agent').removeClass('hide-component');
+                    $('#agent_code').removeClass('hide-component');
+                }else{
+                    $('#form_agent').addClass('hide-component');
+                    $('#agent_code').addClass('hide-component');
+                }
+            });
+
+            $(document).on('click', '.checkbox-list',function(){
+                if ($('#check').is(':checked') !== true) {
+                    $('#check').checked = true;
+                } else {
+                    $('#check').checked = false;
+                }
+
+                if($('#check').is(':checked') === true){
                     $('#form_agent').removeClass('hide-component');
                     $('#agent_code').removeClass('hide-component');
                 }else{
@@ -578,7 +610,7 @@
             });
 
             $('textarea[id^="billing_address"]').each(function () {
-                console.log(this);
+                // console.log(this);
                 $(this).rules('add', {
                     required: true,
                     messages: {
