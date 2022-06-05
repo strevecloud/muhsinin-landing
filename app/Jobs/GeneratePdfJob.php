@@ -89,7 +89,7 @@ class GeneratePdfJob implements ShouldQueue
         $packageName = $package->basic_package_name.' ( '.getDateIndo($package->basic_package_depature_date).' )';
         $fullName = $bookingDetail->first_name.' '.$bookingDetail->last_name;
 
-        $packageNameAndFullName = $packageName. ' an. '.$fullName;
+        $packageNameAndFullName = 'DP '.$packageName. ' an. '.$fullName;
 
         $file = public_path('pdf-template/sample.docx');
         $phpword = new \PhpOffice\PhpWord\TemplateProcessor($file);
