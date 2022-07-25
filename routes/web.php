@@ -18,7 +18,17 @@ Route::get('/', array(
     'uses'  => 'Frontend\FrontendController@index'
 ));
 
+Route::get('/home', array(
+    'as'    => 'index',
+    'uses'  => 'Frontend\FrontendController@index'
+));
+
 Route::post('/', array(
+    'as'    => 'index',
+    'uses'  => 'Frontend\FrontendController@index'
+));
+
+Route::post('/home', array(
     'as'    => 'index',
     'uses'  => 'Frontend\FrontendController@index'
 ));

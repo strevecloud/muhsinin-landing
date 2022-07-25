@@ -13,9 +13,9 @@
                     <li class="menu-item">
                         <a href="/">Home</a>
                     </li>
-                    <li class="menu-item">
-                        <a href="/package">Paket</a>
-                    </li>
+                    {{--<li class="menu-item">--}}
+                        {{--<a href="/package">Paket</a>--}}
+                    {{--</li>--}}
                     {{--<li class="menu-item-has-children">--}}
                         {{--<a href="#">Tour</a>--}}
                         {{--<ul>--}}
@@ -176,9 +176,9 @@
                     <li class="menu-item">
                         <a href="/">Home</a>
                     </li>
-                    <li class="menu-item">
-                        <a href="/package">Paket</a>
-                    </li>
+                    {{--<li class="menu-item">--}}
+                        {{--<a href="/package">Paket</a>--}}
+                    {{--</li>--}}
                 </ul>
                 </nav>
             </div>

@@ -26,11 +26,11 @@
                                     <img src="{{ getImageUrl($package->basic_package_photos)}}" alt="">
                                 </a>
                             </figure>
-                            {{--<div class="package-price">--}}
-                                {{--<h6>--}}
-                                    {{--<span>Rp {{ get_currency($package->branch_package_detail_selling_price) }}</span> / per orang--}}
-                                {{--</h6>--}}
-                            {{--</div>--}}
+                            <div class="package-price">
+                                <h6>
+                                    <span>Rp {{ get_currency($package->branch_package_detail_selling_price) }}</span> / per orang
+                                </h6>
+                            </div>
                             <div class="package-content-wrap">
                                 <div class="package-meta text-center">
                                     <ul>
@@ -38,10 +38,10 @@
                                             <i class="fas fa-calendar"></i>
                                             {{ getDateIndoShort($package->basic_package_depature_date) }}
                                         </li>
-                                        {{--<li>--}}
-                                            {{--<i class="fa fa-bed"></i>--}}
-                                             {{--{{ $package->master_room_name }}--}}
-                                        {{--</li>--}}
+                                        <li>
+                                            <i class="fa fa-bed"></i>
+                                             {{ $package->master_room_name }}
+                                        </li>
                                         <li>
                                             <i class="fas fa-map-marker-alt"></i>
                                             {{ $package->master_office_name }}
@@ -107,16 +107,16 @@
 
                                         <hr class="hr-package">
 
-                                        {{--<div class="row">--}}
-                                            {{--<div class="col-sm text-left">--}}
-                                                {{--<span class="text-sm"><i class="fa fa-xs fa-bed"></i> Kamar</span>--}}
-                                            {{--</div>--}}
-                                            {{--<div class="col-sm text-right">--}}
-                                                {{--<span>{{ $package->master_room_name }}</span>--}}
-                                            {{--</div>--}}
-                                        {{--</div>--}}
+                                        <div class="row">
+                                            <div class="col-sm text-left">
+                                                <span class="text-sm"><i class="fa fa-xs fa-bed"></i> Kamar</span>
+                                            </div>
+                                            <div class="col-sm text-right">
+                                                <span>{{ $package->master_room_name }}</span>
+                                            </div>
+                                        </div>
 
-                                        {{--<hr class="hr-package">--}}
+                                        <hr class="hr-package">
 
                                         <div class="row">
                                             <div class="col-sm text-left">
@@ -142,8 +142,8 @@
                                     </div>
 
                                     <div class="btn-wrap">
-{{--                                        <a href="{{ route('booking.show',[$package->branch_package_detail_id]) }}" class="button-text width-6">Booking<i class="fas fa-arrow-right"></i></a>--}}
-                                        <a href="{{ '/package?brc='.$package->branch_package_id }}" class="button-text width-12"><i class="fas fa-arrow-right"></i> Lihat Detail<i class="fas fa-arrow-left"></i></a>
+                                        <a href="{{ route('booking.show',[$package->branch_package_detail_id]) }}" class="button-text width-6">Booking<i class="fas fa-arrow-right"></i></a>
+                                        <a href="{{ route('package.show',[$package->branch_package_detail_id]) }}" class="button-text width-6">Lihat Detail<i class="fas fa-arrow-right"></i></a>
                                     </div>
                                 </div>
                             </div>
@@ -392,13 +392,9 @@
                         <p class="text-center">Data tidak ditemukan</p>
                     </div>
                 @endif
-
-                    <div class="col-md-12 text-center">
-                        {{ $packages->links() }}
-                    </div>
-                {{--<div class="btn-wrap text-center">--}}
-                    {{--<a href="{{ route('package.index') }}" class="button-primary">Lihat Semua Paket</a>--}}
-                {{--</div>--}}
+                <div class="btn-wrap text-center">
+                    <a href="{{ route('package.index') }}" class="button-primary">Lihat Semua Paket</a>
+                </div>
             </div>
         </div>
     </section>

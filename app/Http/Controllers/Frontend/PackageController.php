@@ -37,7 +37,7 @@ class PackageController extends Controller
             $packages = $this->viewPackagesRepository->filterSearch($request)->simplePaginate(6)->withQueryString();
 
         }else{
-            $packages = $this->viewPackagesRepository->getAll();
+            $packages = $this->viewPackagesRepository->getAllByRequest($request);
         }
 
         $rooms = $this->roomRepository->masterRoomAll();
