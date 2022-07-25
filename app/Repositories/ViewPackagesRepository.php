@@ -9,7 +9,7 @@ class ViewPackagesRepository
 {
     public function getAllIndex()
     {
-        return ViewPackages::with('offering.offeringHotel')->distinct('branch_package_id')->simplePaginate(1)->withQueryString();
+        return ViewPackages::with('offering.offeringHotel')->distinct('branch_package_id')->simplePaginate(9)->withQueryString();
     }
 
     public function getAll()
@@ -94,7 +94,7 @@ class ViewPackagesRepository
         $query = $query->select('*')->distinct('branch_package_id');
 //        dd($query->toSql());
 //            ->whereBetween('basic_package_depature_date',[ $request->input('departure_date'), $request->input('departure_date')])
-        $query = $query->simplePaginate(1)->withQueryString();
+        $query = $query->simplePaginate(9)->withQueryString();
 
         return $query;
     }
