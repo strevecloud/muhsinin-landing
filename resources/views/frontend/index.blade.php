@@ -22,9 +22,9 @@
                     <div class="col-lg-4 col-md-6">
                         <div class="package-wrap">
                             <figure class="feature-image">
-                                <a href="{{ route('package.show',[$package->branch_package_detail_id]) }}">
+                                {{--<a href="{{ route('package.show',[$package->branch_package_detail_id]) }}">--}}
                                     <img src="{{ getImageUrl($package->basic_package_photos)}}" alt="">
-                                </a>
+                                {{--</a>--}}
                             </figure>
                             {{--<div class="package-price">--}}
                                 {{--<h6>--}}
@@ -50,7 +50,7 @@
                                 </div>
                                 <div class="package-content text-center">
                                     <h3>
-                                        <a href="{{ route('package.show',1) }}">{{ $package->basic_package_name }}</a>
+                                        {{ $package->basic_package_name }}
                                     </h3>
                                     <hr class="hr-package">
                                     {{--<div class="review-area">--}}
