@@ -43,7 +43,7 @@ class PackageController extends Controller
         $rooms = $this->roomRepository->masterRoomAll();
         $offices = $this->officeRepository->masterOfficeAll();
 
-        return view('frontend/package', compact('packages','rooms','offices'));
+        return view('frontend/package_detail', compact('packages','rooms','offices'));
     }
 
     /**
