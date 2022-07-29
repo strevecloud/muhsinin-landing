@@ -72,7 +72,7 @@
                                     <div class="entry-text">
                                         <div class="row">
                                             <div class="col-sm text-left">
-                                                <span class="text-sm text-sm-bold">Nama Mahram / Pendamping</span>
+                                                <span class="text-sm text-sm-bold">Nama Pemesan</span>
                                             </div>
                                             <div class="col-sm text-right">
                                                 <span>{{ $result->bookingDetail[0]->first_name.' '.$result->bookingDetail[0]->last_name }}</span>
