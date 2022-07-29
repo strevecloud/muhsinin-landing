@@ -26,10 +26,10 @@
                                         <i class="fas fa-calendar"></i>
                                         {{ getDateIndoShort($package->basic_package_depature_date) }}
                                     </li>
-                                    <li>
-                                        <i class="fa fa-bed"></i>
-                                        {{ $package->master_room_name }}
-                                    </li>
+                                    {{--<li>--}}
+                                        {{--<i class="fa fa-bed"></i>--}}
+                                        {{--{{ $package->master_room_name }}--}}
+                                    {{--</li>--}}
                                     <li>
                                         <i class="fas fa-map-marker-alt"></i>
                                         {{ $package->master_office_name }}
