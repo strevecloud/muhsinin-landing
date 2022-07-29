@@ -78,10 +78,10 @@ Route::get('/search', array(
     'uses'  => 'Frontend\SearchController@index'
 ));
 
-Route::get('/search', array(
-    'as'    => 'search.index',
-    'uses'  => 'Frontend\SearchController@index'
-));
+//Route::get('/search', array(
+//    'as'    => 'search.index',
+//    'uses'  => 'Frontend\SearchController@index'
+//));
 
 Route::post('/user/find-code', array(
     'as'    => 'user.findCOde',
