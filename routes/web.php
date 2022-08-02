@@ -18,7 +18,17 @@ Route::get('/', array(
     'uses'  => 'Frontend\FrontendController@index'
 ));
 
+Route::get('/home', array(
+    'as'    => 'index',
+    'uses'  => 'Frontend\FrontendController@index'
+));
+
 Route::post('/', array(
+    'as'    => 'index',
+    'uses'  => 'Frontend\FrontendController@index'
+));
+
+Route::post('/home', array(
     'as'    => 'index',
     'uses'  => 'Frontend\FrontendController@index'
 ));
@@ -68,10 +78,10 @@ Route::get('/search', array(
     'uses'  => 'Frontend\SearchController@index'
 ));
 
-Route::get('/search', array(
-    'as'    => 'search.index',
-    'uses'  => 'Frontend\SearchController@index'
-));
+//Route::get('/search', array(
+//    'as'    => 'search.index',
+//    'uses'  => 'Frontend\SearchController@index'
+//));
 
 Route::post('/user/find-code', array(
     'as'    => 'user.findCOde',

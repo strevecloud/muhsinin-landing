@@ -22,7 +22,7 @@ class PackageBookingRepository
 
     public function getByCode($code)
     {
-        return PackageBookings::where('booking_code','=',$code)->with('paymentType')->with('viewPackage')->with('bookingDetail')->firstOrFail();
+        return PackageBookings::where('booking_code','=',$code)->with('paymentType')->with('viewPackage')->with('bookingDetail')->first();
     }
 
     public function getDetailByPackageBookingId($id)

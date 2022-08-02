@@ -30,6 +30,23 @@ class FrontendController extends Controller
         $packages = null;
 
         if($request->exists('departure_date')){
+            $packages = $this->viewPackagesRepository->filterSearchIndex($request);
+        }else{
+            $packages = $this->viewPackagesRepository->getAllIndex();
+        }
+//        dd($req);
+        $rooms = $this->roomRepository->masterRoomAll();
+        $offices = $this->officeRepository->masterOfficeAll();
+        $packageDetails = $this->officeRepository->masterOfficeAll();
+        return view('frontend/index',compact('rooms','offices','packageDetails','packages'));
+    }
+
+    public function home(Request $request)
+    {
+        $req = $request->all();
+        $packages = null;
+
+        if($request->exists('departure_date')){
             $packages = $this->viewPackagesRepository->filterSearch($request)->get();
         }else{
             $packages = $this->viewPackagesRepository->getAll();
@@ -39,7 +56,7 @@ class FrontendController extends Controller
         $rooms = $this->roomRepository->masterRoomAll();
         $offices = $this->officeRepository->masterOfficeAll();
         $packageDetails = $this->officeRepository->masterOfficeAll();
-        return view('frontend/index',compact('rooms','offices','packageDetails','packages'));
+        return view('frontend/home',compact('rooms','offices','packageDetails','packages'));
     }
 
 

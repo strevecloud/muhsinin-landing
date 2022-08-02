@@ -1,68 +1,77 @@
 @extends('layout.master')
 
 @section('content')
+    @php
+        use App\Repositories\ViewPackagesRepository;
+        use App\Repositories\BranchPackageRepository;
+    @endphp
+
     <!-- Inner Banner html start-->
-    @include('frontend.partials.banner_image',['title' => 'Semua Paket'])
+    @include('frontend.partials.banner_image',['title' => 'Paket Detail'])
     <!-- Inner Banner html end-->
     <!-- packages html start -->
     <div class="package-section">
         <div class="container">
             <div class="package-inner">
                 <div class="row">
-                    <div class="col-lg-4">
-                        <div class="sidebar">
-                            <div class="widget-bg booking-form-wrap">
-                                <h4 class="bg-title">Filter</h4>
-                                <form class="booking-form" method="get">
+                    {{--<div class="col-lg-4">--}}
+                        {{--<div class="sidebar">--}}
+                            {{--<div class="widget-bg booking-form-wrap">--}}
+                                {{--<h4 class="bg-title">Filter</h4>--}}
+                                {{--<form class="booking-form" method="get">--}}
+
+                                    {{--@if(request()->has('brc'))--}}
+                                        {{--<input type="hidden" name="brc" value="{{ request()->input('brc') }}">--}}
+                                    {{--@endif--}}
                                     {{--@csrf--}}
-                                    <div class="row">
-                                        <div class="col-sm-12">
-                                            <div class="form-group">
-                                                <label for="formGroupExampleInput">Kota Keberangkatan</label>
-                                                <div class="input-group-prepend">
-                                                    <div class="input-group-text"><i class="fa fa-xs fa-location-arrow"></i></div>
-                                                    <select class="form-control" name="city_branch" id="city_branch">
-                                                        @foreach($offices as $office)
-                                                            <option {{ @request()->city_branch == $office->id ? "selected" : "" }} value="{{ $office->id }}">{{ $office->name }}</option>
-                                                        @endforeach
-                                                    </select>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-12">
-                                            <div class="form-group">
-                                                <label for="formGroupExampleInput">Jadwal Keberangkatan</label>
-                                                <div class="input-group-prepend">
-                                                    <div class="input-group-text"><i class="fa fa-xs fa-calendar"></i></div>
-                                                    <input class="input-date-picker date-picker" name="departure_date" value="{{ @request()->departure_date }}" id="datepicker" type="text" name="s" placeholder="MM-YY" autocomplete="off" readonly="readonly">
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-12">
-                                            <div class="form-group">
-                                                <label for="formGroupExampleInput">Tipe Kamar</label>
-                                                <div class="input-group-prepend">
-                                                    <div class="input-group-text"><i class="fa fa-xs fa-bed"></i></div>
-                                                    <select class="form-control" name="room_type" id="room_type">
-                                                        <option value="">Silahkan Pilih</option>
-                                                        @foreach($rooms as $room)
-                                                            <option {{ @request()->room_type == $room->id ? "selected" : "" }} value="{{ $room->id }}">{{ $room->name }}</option>
-                                                        @endforeach
-                                                    </select>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-12">
-                                            <div class="form-group text-center submit-btn">
-                                                <input type="submit" value="Cari Paket">
-                                            </div>
-                                        </div>
-                                    </div>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row col-lg-8">
+                                    {{--<div class="row">--}}
+                                        {{--<div class="col-sm-12">--}}
+                                            {{--<div class="form-group">--}}
+                                                {{--<label for="formGroupExampleInput">Kota Keberangkatan</label>--}}
+                                                {{--<div class="input-group-prepend">--}}
+                                                    {{--<div class="input-group-text"><i class="fa fa-xs fa-location-arrow"></i></div>--}}
+                                                    {{--<select class="form-control" name="city_branch" id="city_branch">--}}
+                                                        {{--@foreach($offices as $office)--}}
+                                                            {{--<option {{ @request()->city_branch == $office->id ? "selected" : "" }} value="{{ $office->id }}">{{ $office->name }}</option>--}}
+                                                        {{--@endforeach--}}
+                                                    {{--</select>--}}
+                                                {{--</div>--}}
+                                            {{--</div>--}}
+                                        {{--</div>--}}
+                                        {{--<div class="col-sm-12">--}}
+                                            {{--<div class="form-group">--}}
+                                                {{--<label for="formGroupExampleInput">Jadwal Keberangkatan</label>--}}
+                                                {{--<div class="input-group-prepend">--}}
+                                                    {{--<div class="input-group-text"><i class="fa fa-xs fa-calendar"></i></div>--}}
+                                                    {{--<input class="input-date-picker date-picker" name="departure_date" value="{{ @request()->departure_date }}" id="datepicker" type="text" name="s" placeholder="MM-YY" autocomplete="off" readonly="readonly">--}}
+                                                {{--</div>--}}
+                                            {{--</div>--}}
+                                        {{--</div>--}}
+                                        {{--<div class="col-sm-12">--}}
+                                            {{--<div class="form-group">--}}
+                                                {{--<label for="formGroupExampleInput">Tipe Kamar</label>--}}
+                                                {{--<div class="input-group-prepend">--}}
+                                                    {{--<div class="input-group-text"><i class="fa fa-xs fa-bed"></i></div>--}}
+                                                    {{--<select class="form-control" name="room_type" id="room_type">--}}
+                                                        {{--<option value="">Silahkan Pilih</option>--}}
+                                                        {{--@foreach($rooms as $room)--}}
+                                                            {{--<option {{ @request()->room_type == $room->id ? "selected" : "" }} value="{{ $room->id }}">{{ $room->name }}</option>--}}
+                                                        {{--@endforeach--}}
+                                                    {{--</select>--}}
+                                                {{--</div>--}}
+                                            {{--</div>--}}
+                                        {{--</div>--}}
+                                        {{--<div class="col-sm-12">--}}
+                                            {{--<div class="form-group text-center submit-btn">--}}
+                                                {{--<input type="submit" value="Cari Paket">--}}
+                                            {{--</div>--}}
+                                        {{--</div>--}}
+                                    {{--</div>--}}
+                                {{--</form>--}}
+                            {{--</div>--}}
+                        {{--</div>--}}
+                    {{--</div>--}}
+                    <div class="row col-lg-12">
                         {{--<div class="col-lg-12 button-filter text-center">--}}
                             {{--<div class="btn-group btn-group-toggle" data-toggle="buttons">--}}
                                 {{--<label class="btn btn-md btn-outline-secondary active">--}}
@@ -81,7 +90,7 @@
                         {{--</div>--}}
                         @if($packages->count() > 0)
                             @foreach($packages as $package)
-                            <div class="col-lg-6 col-md-6">
+                            <div class="col-lg-4 col-md-4">
                                 <div class="package-wrap">
                                     <figure class="feature-image">
                                         <a href="{{ route('package.show',[$package->branch_package_detail_id]) }}">
@@ -96,18 +105,18 @@
                                     <div class="package-content-wrap">
                                         <div class="package-meta text-center">
                                             <ul>
-                                                <li>
-                                                    <i class="fas fa-calendar"></i>
-                                                    {{ getDateIndoShort($package->basic_package_depature_date) }}
-                                                </li>
+                                                {{--<li>--}}
+                                                    {{--<i class="fas fa-calendar"></i>--}}
+                                                    {{--{{ getDateIndoShort($package->basic_package_depature_date) }}--}}
+                                                {{--</li>--}}
                                                 <li>
                                                     <i class="fa fa-bed"></i>
                                                     {{ $package->master_room_name }}
                                                 </li>
-                                                <li>
-                                                    <i class="fas fa-map-marker-alt"></i>
-                                                    {{ $package->master_office_name }}
-                                                </li>
+                                                {{--<li>--}}
+                                                    {{--<i class="fas fa-map-marker-alt"></i>--}}
+                                                    {{--{{ $package->master_office_name }}--}}
+                                                {{--</li>--}}
                                             </ul>
                                         </div>
                                         <div class="package-content text-center">
@@ -123,93 +132,102 @@
                                             {{--</div>--}}
                                             {{--<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit luctus nec ullam. Ut elit tellus, luctus nec ullam elit tellpus.</p>--}}
 
-                                            <div class="col-md-12">
-                                                <div class="row">
-                                                    <div class="col-sm text-left">
-                                                        <span class="text-sm"><i class="fa fa-xs fa-calendar"></i> Berangkat</span>
-                                                    </div>
-                                                    <div class="col-sm text-right">
-                                                        <span>{{ getDateIndoShort($package->basic_package_depature_date) }}</span>
-                                                    </div>
-                                                </div>
+                                            {{--<div class="col-md-12">--}}
+                                                {{--<div class="row">--}}
+                                                    {{--<div class="col-sm text-left">--}}
+                                                        {{--<span class="text-sm"><i class="fa fa-xs fa-calendar"></i> Berangkat</span>--}}
+                                                    {{--</div>--}}
+                                                    {{--<div class="col-sm text-right">--}}
+                                                        {{--<span>{{ getDateIndoShort($package->basic_package_depature_date) }}</span>--}}
+                                                    {{--</div>--}}
+                                                {{--</div>--}}
 
-                                                <hr class="hr-package">
+                                                {{--<hr class="hr-package">--}}
 
-                                                <div class="row">
-                                                    <div class="col-sm text-left">
-                                                        <span class="text-sm"><i class="fa fa-xs fa-stopwatch"></i> Durasi</span>
-                                                    </div>
-                                                    <div class="col-sm text-right">
-                                                        <span>{{ $package->basic_package_duration }}</span>
-                                                    </div>
-                                                </div>
+                                                {{--<div class="row">--}}
+                                                    {{--<div class="col-sm text-left">--}}
+                                                        {{--<span class="text-sm"><i class="fa fa-xs fa-stopwatch"></i> Durasi</span>--}}
+                                                    {{--</div>--}}
+                                                    {{--<div class="col-sm text-right">--}}
+                                                        {{--<span>{{ $package->basic_package_duration }}</span>--}}
+                                                    {{--</div>--}}
+                                                {{--</div>--}}
 
-                                                <hr class="hr-package">
+                                                {{--<hr class="hr-package">--}}
 
-                                                <div class="row">
-                                                    <div class="col-sm text-left">
-                                                        <span class="text-sm"><i class="fa fa-xs fa-location-arrow"></i> Kota</span>
-                                                    </div>
-                                                    <div class="col-sm text-right">
-                                                        <span>{{ $package->master_office_name }}</span>
-                                                    </div>
-                                                </div>
+                                                {{--<div class="row">--}}
+                                                    {{--<div class="col-sm text-left">--}}
+                                                        {{--<span class="text-sm"><i class="fa fa-xs fa-location-arrow"></i> Kota</span>--}}
+                                                    {{--</div>--}}
+                                                    {{--<div class="col-sm text-right">--}}
+                                                        {{--<span>{{ $package->master_office_name }}</span>--}}
+                                                    {{--</div>--}}
+                                                {{--</div>--}}
 
-                                                <hr class="hr-package">
+                                                {{--<hr class="hr-package">--}}
 
 
-                                                <div class="row">
-                                                    <div class="col-sm text-left">
-                                                        <span class="text-sm"><i class="fa fa-xs fa-plane"></i> Maskapai</span>
-                                                    </div>
-                                                    <div class="col-sm text-right">
-                                                        <span>{{ $package->master_airline_name }}</span>
-                                                    </div>
-                                                </div>
+                                                {{--<div class="row">--}}
+                                                    {{--<div class="col-sm text-left">--}}
+                                                        {{--<span class="text-sm"><i class="fa fa-xs fa-plane"></i> Maskapai</span>--}}
+                                                    {{--</div>--}}
+                                                    {{--<div class="col-sm text-right">--}}
+                                                        {{--<span>{{ $package->master_airline_name }}</span>--}}
+                                                    {{--</div>--}}
+                                                {{--</div>--}}
 
-                                                <hr class="hr-package">
+                                                {{--<hr class="hr-package">--}}
 
-                                                <div class="row">
-                                                    <div class="col-sm text-left">
-                                                        <span class="text-sm"><i class="fa fa-xs fa-bed"></i> Kamar</span>
-                                                    </div>
-                                                    <div class="col-sm text-right">
-                                                        <span>{{ $package->master_room_name }}</span>
-                                                    </div>
-                                                </div>
+                                                {{--<div class="row">--}}
+                                                    {{--<div class="col-sm text-left">--}}
+                                                        {{--<span class="text-sm"><i class="fa fa-xs fa-bed"></i> Kamar</span>--}}
+                                                    {{--</div>--}}
+                                                    {{--<div class="col-sm text-right">--}}
+                                                        {{--<span>{{ $package->master_room_name }}</span>--}}
+                                                    {{--</div>--}}
+                                                {{--</div>--}}
 
-                                                <hr class="hr-package">
+                                                {{--<hr class="hr-package">--}}
 
-                                                <div class="row">
-                                                    <div class="col-sm text-left">
-                                                        <span class="text-sm"><i class="fa fa-xs fa-hotel"></i> Hotel</span>
-                                                    </div>
-                                                    <div class="col-sm text-right">
+                                                {{--<div class="row">--}}
+                                                    {{--<div class="col-sm text-left">--}}
+                                                        {{--<span class="text-sm"><i class="fa fa-xs fa-hotel"></i> Hotel</span>--}}
+                                                    {{--</div>--}}
+                                                    {{--<div class="col-sm text-right">--}}
                                                         {{--<div class="rating-start" title="Rated 5 out of 5">--}}
                                                             {{--<span style="width: 60%"></span>--}}
                                                         {{--</div>--}}
-                                                        @if(@$package->offering->offeringHotel)
-                                                            @foreach($package->offering->offeringHotel as $hotel)
-                                                                {{ ucwords(strtolower($hotel->hotel->name)) }},
-                                                            @endforeach
-                                                        @else
-                                                            <span>N/A</span>
-                                                        @endif
-                                                    </div>
-                                                </div>
+                                                        {{--@if(@$package->offering->offeringHotel)--}}
+                                                            {{--@foreach($package->offering->offeringHotel as $hotel)--}}
+                                                                {{--{{ ucwords(strtolower($hotel->hotel->name)) }},--}}
+                                                            {{--@endforeach--}}
+                                                        {{--@else--}}
+                                                            {{--<span>N/A</span>--}}
+                                                        {{--@endif--}}
+                                                    {{--</div>--}}
+                                                {{--</div>--}}
 
-                                                <hr class="hr-package">
-                                            </div>
+                                                {{--<hr class="hr-package">--}}
+                                            {{--</div>--}}
 
                                             <div class="btn-wrap">
-                                                <a href="{{ route('booking.show',[$package->branch_package_detail_id]) }}" class="button-text width-6">Booking<i class="fas fa-arrow-right"></i></a>
-                                                <a href="{{ route('package.show',[$package->branch_package_detail_id]) }}" class="button-text width-6">Lihat Detail<i class="fas fa-arrow-right"></i></a>
+                                                <a href="{{ route('booking.show',[$package->branch_package_detail_id]) }}" class="button-text width-12"><i class="fas fa-arrow-right"></i> Booking<i class="fas fa-arrow-left"></i></a>
+                                                {{--<a href="{{ route('package.show',[$package->branch_package_detail_id]) }}" class="button-text width-6">Lihat Detail<i class="fas fa-arrow-right"></i></a>--}}
                                             </div>
+
+                                            @php
+                                                $package2 = ViewPackagesRepository::getByBranchPackageDetailId($package->branch_package_detail_id);
+
+                                                $itinerary = BranchPackageRepository::branchPackageByDetailId($package->branch_package_detail_id);
+                                            @endphp
+
                                         </div>
                                     </div>
                                 </div>
                             </div>
                             @endforeach
+                            @include('frontend.partials.package_info_tab', ['package' => $package,'itinerary' => $itinerary])
+
                         @else
                             <div class="booking-content text-center col-lg-12">
                                 <p class="text-center">Data tidak ditemukan</p>

@@ -37,13 +37,13 @@ class PackageController extends Controller
             $packages = $this->viewPackagesRepository->filterSearch($request)->simplePaginate(6)->withQueryString();
 
         }else{
-            $packages = $this->viewPackagesRepository->getAll();
+            $packages = $this->viewPackagesRepository->getAllByRequest($request);
         }
 
         $rooms = $this->roomRepository->masterRoomAll();
         $offices = $this->officeRepository->masterOfficeAll();
 
-        return view('frontend/package', compact('packages','rooms','offices'));
+        return view('frontend/package_detail', compact('packages','rooms','offices'));
     }
 
     /**

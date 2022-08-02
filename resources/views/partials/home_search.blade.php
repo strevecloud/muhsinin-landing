@@ -5,7 +5,7 @@
         @csrf
         <div class="container">
         <div class="trip-search-inner white-bg d-flex">
-            <div class="input-group col-md-3">
+            <div class="input-group col-md-4">
                 <div class="col-sm-12">
                     <div class="form-group">
                         <label> Lokasi Keberangkatan <span class="text-danger">*</span> </label>
@@ -18,20 +18,20 @@
                     </div>
                 </div>
             </div>
-            <div class="input-group col-md-3">
-                <div class="col-sm-12">
-                    <div class="form-group">
-                        <label> Tipe Kamar</label>
-                        <select class="form-control" name="room_type" id="room_type">
-                            <option value="">Silahkan Pilih</option>
-                            @foreach($rooms as $room)
-                                <option {{ @request()->room_type == $room->id ? "selected" : "" }} value="{{ $room->id }}">{{ $room->name }}</option>
-                            @endforeach
-                        </select>
-                    </div>
-                </div>
-            </div>
-            <div class="input-group col-md-3">
+            {{--<div class="input-group col-md-3">--}}
+                {{--<div class="col-sm-12">--}}
+                    {{--<div class="form-group">--}}
+                        {{--<label> Tipe Kamar</label>--}}
+                        {{--<select class="form-control" name="room_type" id="room_type">--}}
+                            {{--<option value="">Silahkan Pilih</option>--}}
+                            {{--@foreach($rooms as $room)--}}
+                                {{--<option {{ @request()->room_type == $room->id ? "selected" : "" }} value="{{ $room->id }}">{{ $room->name }}</option>--}}
+                            {{--@endforeach--}}
+                        {{--</select>--}}
+                    {{--</div>--}}
+                {{--</div>--}}
+            {{--</div>--}}
+            <div class="input-group col-md-4">
                 <div class="col-sm-12">
                     <div class="form-group">
                         <label> Waktu Keberangkatan</label>
@@ -40,7 +40,7 @@
                     </div>
                 </div>
             </div>
-            <div class="input-group col-md-3">
+            <div class="input-group col-md-4">
                 <div class="col-sm-12">
                     <div class="form-group">
                         <label class="screen-reader-text"> Search </label>

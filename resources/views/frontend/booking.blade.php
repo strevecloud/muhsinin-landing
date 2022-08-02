@@ -16,7 +16,7 @@
     <div class="step-section booking-section">
         <div class="container">
             <div class="row">
-                <div class="col-lg-8 right-sidebar">
+                <div class="col-lg-12">
                     <!-- step one form html start -->
                     <div class="single-tour-inner">
                         <h2>{{ $package->basic_package_name }}</h2>
@@ -343,10 +343,12 @@
                     </form>
                     <!-- step one form html end -->
                 </div>
-                <div class="col-lg-4">
+                <div class="col-lg-12">
                     <aside class="sidebar">
                         <div class="widget-bg widget-table-summary">
-                            <h4 class="bg-title">Total Harga</h4>
+                            <div class="form-title">
+                                <h3>Tipe Pembayaran</h3>
+                            </div>
                             <table>
                                 <tbody>
                                 <tr>
@@ -366,20 +368,20 @@
                                     </td>
                                 </tr>
                                 {{--<tr>--}}
-                                    {{--<td>--}}
-                                        {{--<strong>Jumlah Jamaah</strong>--}}
-                                    {{--</td>--}}
-                                    {{--<td class="text-right">--}}
-                                        {{--{{ $package->master_room_value }}--}}
-                                    {{--</td>--}}
+                                {{--<td>--}}
+                                {{--<strong>Jumlah Jamaah</strong>--}}
+                                {{--</td>--}}
+                                {{--<td class="text-right">--}}
+                                {{--{{ $package->master_room_value }}--}}
+                                {{--</td>--}}
                                 {{--</tr>--}}
                                 {{--<tr class="total">--}}
-                                    {{--<td>--}}
-                                        {{--<strong>Total Harga</strong>--}}
-                                    {{--</td>--}}
-                                    {{--<td class="text-right">--}}
-                                        {{--<strong>Rp {{ get_currency($package->branch_package_detail_selling_price * $package->master_room_value) }}</strong>--}}
-                                    {{--</td>--}}
+                                {{--<td>--}}
+                                {{--<strong>Total Harga</strong>--}}
+                                {{--</td>--}}
+                                {{--<td class="text-right">--}}
+                                {{--<strong>Rp {{ get_currency($package->branch_package_detail_selling_price * $package->master_room_value) }}</strong>--}}
+                                {{--</td>--}}
                                 {{--</tr>--}}
                                 </tbody>
                             </table>
@@ -387,9 +389,9 @@
                                 <input type="submit" id="submit-booking" name="submit" value="Pesan Sekarang">
                             </div>
                         </div>
-                        TIPE PEMBAYARAN
                     </aside>
                 </div>
+
             </div>
         </div>
     </div>
