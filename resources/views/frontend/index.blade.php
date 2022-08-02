@@ -2,6 +2,41 @@
 
 @section('content')
     @include('partials.home_slider')
+    <section class="trip-search-section shape-search-section">
+        <div class="slider-shape"></div>
+        <div class="container">
+            <div class="section-heading text-center">
+                <div class="row">
+                    <div class="col-lg-8 offset-lg-2">
+                        <h2>Hadist Rasul</h2>
+                    </div>
+                </div>
+            </div>
+            <img src="{{ asset('assets/images/slide-2.jpeg')}}" alt="">
+        </div>
+    </section>
+    <section class="package-section" style="background-color: #f3f3f3; padding-top: 50px;">
+        <div class="container">
+            <div class="section-heading text-center">
+                <div class="row">
+                    <div class="col-lg-8 offset-lg-2">
+                        <h2>Video</h2>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4">
+                        <iframe width="560" height="315" src="https://www.youtube.com/embed/Lg9Modhl3Jc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                    <div class="col-md-4">
+                        <iframe width="560" height="315" src="https://www.youtube.com/embed/H4_3dnRS9XI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                    <div class="col-md-4">
+                        <iframe width="560" height="315" src="https://www.youtube.com/embed/LrMa5YZK63g" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
     @include('partials.home_search')
     <!-- Home packages section html start -->
     <section class="package-section">
