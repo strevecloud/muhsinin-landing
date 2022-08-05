@@ -8,16 +8,18 @@ use App\Repositories\MasterRoomRepository;
 use App\Repositories\MasterOfficeRepository;
 use App\Repositories\ViewPackagesRepository;
 use App\Repositories\PackageBookingRepository;
+use App\Models\ViewPackageAll;
 
 class SearchController extends Controller
 {
-    protected $roomRepository,$officeRepository,$packageDetailRepository,$viewPackagesRepository,$packageBookingRepository;
+    protected $roomRepository,$officeRepository,$packageDetailRepository,$viewPackagesRepository,$packageBookingRepository,$viewPackageAll;
     public function __construct()
     {
         $this->roomRepository = new MasterRoomRepository();
         $this->officeRepository = new MasterOfficeRepository();
         $this->viewPackagesRepository = new ViewPackagesRepository();
         $this->packageBookingRepository = new PackageBookingRepository();
+        $this->viewPackageAll = new ViewPackageAll();
     }
 
     /**
@@ -33,7 +35,7 @@ class SearchController extends Controller
 
         if($request->has('search')){
             $code = $request->get('search');
-            $booking[] = $this->packageBookingRepository->getByCode($code);
+            $booking[] = $this->packageBookingRepository->getByCodeViewPackageAll($code);
 
             if(!$booking[0]){
                 $booking = $this->packageBookingRepository->getBookingByPhoneNumber($code);

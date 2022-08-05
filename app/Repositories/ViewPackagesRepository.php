@@ -3,6 +3,7 @@
 namespace App\Repositories;
 
 use App\Models\ViewPackages;
+use App\Models\ViewPackageAll;
 use \Carbon\Carbon;
 
 class ViewPackagesRepository
@@ -38,7 +39,7 @@ class ViewPackagesRepository
 
     public function getByBranchPackageDetailId($id)
     {
-        return ViewPackages::where('branch_package_detail_id','=',$id)->firstOrFail();
+        return ViewPackageAll::where('branch_package_detail_id','=',$id)->firstOrFail();
     }
 
     public function filterSearch($request){
