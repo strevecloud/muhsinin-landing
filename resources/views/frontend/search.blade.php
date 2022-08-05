@@ -53,7 +53,17 @@
                                                 <span class="text-sm text-sm-bold">Kode Pemesanan</span>
                                             </div>
                                             <div class="col-sm text-right">
-                                                <span>{{ $result->booking_code }}</span>
+                                                <span><b>{{ $result->booking_code }}</b></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="entry-text">
+                                        <div class="row">
+                                            <div class="col-sm text-left">
+                                                <span class="text-sm text-sm-bold">Status Pemesanan</span>
+                                            </div>
+                                            <div class="col-sm text-right">
+                                                <span><b>{{ $result->status }}</b></span>
                                             </div>
                                         </div>
                                     </div>
