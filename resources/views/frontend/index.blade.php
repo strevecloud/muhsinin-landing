@@ -61,11 +61,11 @@
                                     <img src="{{ getImageUrl($package->basic_package_photos)}}" alt="">
                                 {{--</a>--}}
                             </figure>
-                            {{--<div class="package-price">--}}
-                                {{--<h6>--}}
-                                    {{--<span>Rp {{ get_currency($package->branch_package_detail_selling_price) }}</span> / per orang--}}
-                                {{--</h6>--}}
-                            {{--</div>--}}
+                            <div class="package-price">
+                                <h6>
+                                    <span>Rp {{ get_currency($minPriceList[$package->branch_package_id]) }}</span> / per orang
+                                </h6>
+                            </div>
                             <div class="package-content-wrap">
                                 <div class="package-meta text-center">
                                     <ul>

@@ -5,6 +5,7 @@ namespace App\Repositories;
 use App\Models\ViewPackages;
 use App\Models\ViewPackageAll;
 use \Carbon\Carbon;
+use DB;
 
 class ViewPackagesRepository
 {
@@ -100,5 +101,21 @@ class ViewPackagesRepository
         $query = $query->simplePaginate(9)->withQueryString();
 
         return $query;
+    }
+
+    public function getAllPriceByBranchPackage($listBranchPackage){
+
+        $items = DB::table('view_packages')->selectRaw("branch_package_id,min(branch_package_detail_selling_price)")->whereIn('branch_package_id',$listBranchPackage)->groupBy('branch_package_id')->get();
+
+        $arrData = [];
+
+        foreach($items as $item){
+            $arrData[$item->branch_package_id] = $item->min;
+        }
+
+
+        return $arrData;
+
+
     }
 }
