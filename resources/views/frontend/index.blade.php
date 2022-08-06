@@ -438,6 +438,15 @@
         </div>
     </section>
     <!-- packages html end -->
+    <!-- Why section html start -->
+    @include('partials.home_why');
+    <!-- blog html end -->
+    <!-- Testimoni section html start -->
+    @include('partials.home_testimoni');
+    <!-- blog html end -->
+    <!-- Testimoni section html start -->
+    @include('partials.home_gallery');
+    <!-- blog html end -->
     <!-- Home blog section html start -->
     {{--@include('partials.recent_post');--}}
     <!-- blog html end -->

@@ -4,74 +4,56 @@
             <div class="col-lg-4 col-md-6">
                 <aside class="widget widget_text">
                     <h3 class="widget-title">
-                        About Travel
+                        Tentang Muhsinin Travel
                     </h3>
-                    <div class="textwidget widget-text">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.
+                    <div class="textwidget widget-text text-justify">
+                        Perusahaan berdiri secara resmi pada tahun 2020 dengan nama PT Barokah Insan Muhsinin. Kami adalah Perusahaan yang bergerak di bidang Jasa Umrah & Haji, Provider visa, Land Arrangement, Paket Umrah Plus, Paket Haji Furoda dan Paket Haji Khusus. Hadir untuk mengantarkan para tamu ALLAH ke dalam tingkatan Ihsan sebagai tujuan untuk memuliakan dan membahagiakan jamaah,sehingga menjadi amal sholeh yang dapat dibanggakan di sisi ALLAH SWT kelak.
                     </div>
-                    <div class="award-img">
+                    <!-- <div class="award-img">
                         <a href="#"><img src="{{ asset('assets/images/logo6.png')}}" alt=""></a>
                         <a href="#"><img src="{{ asset('assets/images/logo2.png')}}" alt=""></a>
-                    </div>
+                    </div> -->
                 </aside>
             </div>
             <div class="col-lg-4 col-md-6">
                 <aside class="widget widget_text">
-                    <h3 class="widget-title">CONTACT INFORMATION</h3>
+                    <h3 class="widget-title">INFORMASI</h3>
                     <div class="textwidget widget-text">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                        <!-- Lorem ipsum dolor sit amet, consectetur adipiscing elit. -->
                         <ul>
                             <li>
                                 <a href="#">
                                     <i class="fas fa-phone-alt"></i>
-                                    +01 (977) 2599 12
+                                    081299379878
                                 </a>
                             </li>
                             <li>
                                 <a href="#">
                                     <i class="fas fa-envelope"></i>
-                                    company@domain.com
+                                    themuhsinintravel@gmail.com
                                 </a>
                             </li>
                             <li>
                                 <i class="fas fa-map-marker-alt"></i>
-                                3146  Koontz, California
+                                Jl. Pejaten Barat Raya No.45E, RT.2/RW.8, Pejaten Bar., Kec. Ps. Minggu, Kota Jakarta Selatan, Daerah Khusus Ibukota Jakarta 12510
                             </li>
                         </ul>
                     </div>
                 </aside>
             </div>
             <div class="col-lg-4 col-md-6">
-                <aside class="widget widget_recent_post">
-                    <h3 class="widget-title">Latest Post</h3>
-                    <ul>
-                        <li>
-                            <h5>
-                                <a href="#">Life is a beautiful journey not a destination</a>
-                            </h5>
-                            <div class="entry-meta">
-                                    <span class="post-on">
-                                       <a href="#">August 17, 2021</a>
-                                    </span>
-                                <span class="comments-link">
-                                       <a href="#">No Comments</a>
-                                    </span>
-                            </div>
-                        </li>
-                        <li>
-                            <h5>
-                                <a href="#">Take only memories, leave only footprints</a>
-                            </h5>
-                            <div class="entry-meta">
-                                    <span class="post-on">
-                                       <a href="#">August 17, 2021</a>
-                                    </span>
-                                <span class="comments-link">
-                                       <a href="#">No Comments</a>
-                                    </span>
-                            </div>
-                        </li>
-                    </ul>
+                <aside class="widget widget_text">
+                    <h3 class="widget-title">PEMBAYARAN</h3>
+                    <div class="textwidget widget-text">
+                        <ul>
+                            <li>
+                                <h5>
+                                    <a href="#">Rekening Bank Syariah Indonesia an. PT Barokah Insan Muhsinin Cab. Depok Cinere</a>
+                                </h5>
+                                <p>No. Rek 8008282080</p>
+                            </li>
+                        </ul>
+                    </div>
                 </aside>
             </div>
         </div>
