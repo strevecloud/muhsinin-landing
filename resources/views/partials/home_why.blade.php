@@ -7,7 +7,7 @@
             <div class="col-lg-8 offset-lg-2">
                 <h5 class="dash-style"></h5>
                 <h2>MENGAPA MEMILIH KAMI</h2>
-                <p>Mollit voluptatem perspiciatis convallis elementum corporis quo veritatis aliquid blandit, blandit torquent, odit placeat. Adipiscing repudiandae eius cursus? Nostrum magnis maxime curae placeat.</p>
+                <!-- <p>Mollit voluptatem perspiciatis convallis elementum corporis quo veritatis aliquid blandit, blandit torquent, odit placeat. Adipiscing repudiandae eius cursus? Nostrum magnis maxime curae placeat.</p> -->
             </div>
             </div>
         </div>
