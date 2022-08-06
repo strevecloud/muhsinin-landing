@@ -51,7 +51,7 @@
         @yield('content')
     </main>
     <footer id="colophon" class="site-footer footer-primary">
-        {{--@include('partials.top_footer');--}}
+        @include('partials.top_footer');
         @include('partials.bootom_footer');
     </footer>
     <a id="backTotop" href="#" class="to-top-icon">
