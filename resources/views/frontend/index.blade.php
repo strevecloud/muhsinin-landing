@@ -439,6 +439,9 @@
     </section>
     <!-- packages html end -->
     <!-- Home blog section html start -->
+    @include('partials.home_why');
+    <!-- blog html end -->
+    <!-- Home blog section html start -->
     {{--@include('partials.recent_post');--}}
     <!-- blog html end -->
     <!-- Home contact details section html start -->
