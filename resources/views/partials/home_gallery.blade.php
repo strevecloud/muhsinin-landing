@@ -24,7 +24,7 @@
                 </div>
                 <div class="col-md-4">
                     <figure class="gallery-img">
-                        <img src="assets/images/gallery/3.jpg" alt="" style="object-fit: cover; height: 200px;">
+                        <img src="assets/images/gallery/3.JPG" alt="" style="object-fit: cover; height: 200px;">
                     </figure>
                 </div>
             </div>
