@@ -16,6 +16,11 @@ class OfferingVendors extends Model
         return $this->hasMany(ViewPackages::class,'offering_vendor_id','ID');
     }
 
+    public function viewPackageAll()
+    {
+        return $this->hasMany(ViewPackageAll::class,'offering_vendor_id','ID');
+    }
+
     public function offeringHotel()
     {
         return $this->hasMany(OfferingVendorHotels::class,'offering_vendor_id');

@@ -21,6 +21,10 @@ class PackageBookings extends Model
         return $this->belongsTo(ViewPackages::class,'branch_package_detail_id','branch_package_detail_id');
     }
 
+    public function viewPackageAll(){
+        return $this->belongsTo(ViewPackageAll::class,'branch_package_detail_id','branch_package_detail_id');
+    }
+
     public function paymentType(){
         return $this->belongsTo(MasterPaymentType::class,'payment_type_id');
     }

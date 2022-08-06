@@ -32,11 +32,19 @@
                     @foreach($results as $result)
                     <div class="col-lg-{{ $gridSize }} grid-item">
 
+                        @php
+                            $viewPackage = $result->viewPackage;
+
+                            if($result->viewPackage == null){
+                                $viewPackage = $result->viewPackageAll;
+                            }
+                        @endphp
+
                         <div class="search-content-wrap">
                             <article class="post">
                                 <div class="entry-content">
                                     <h3 class="entry-title">
-                                        <a href="{{ route('booking.detail',[$result->booking_code ]) }}"><h3>{{ $i }}.</h3>{{ $result->viewPackage->basic_package_name }}</a>
+                                        <a href="{{ route('booking.detail',[$result->booking_code ]) }}"><h3>{{ $i }}.</h3>{{ $viewPackage->basic_package_name }}</a>
                                     </h3>
 
                                     <div class="entry-text">
@@ -45,7 +53,17 @@
                                                 <span class="text-sm text-sm-bold">Kode Pemesanan</span>
                                             </div>
                                             <div class="col-sm text-right">
-                                                <span>{{ $result->booking_code }}</span>
+                                                <span><b>{{ $result->booking_code }}</b></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="entry-text">
+                                        <div class="row">
+                                            <div class="col-sm text-left">
+                                                <span class="text-sm text-sm-bold">Status Pemesanan</span>
+                                            </div>
+                                            <div class="col-sm text-right">
+                                                <span><b>{{ $result->status }}</b></span>
                                             </div>
                                         </div>
                                     </div>
@@ -55,7 +73,7 @@
                                                 <span class="text-sm text-sm-bold">Kota Keberangkatan</span>
                                             </div>
                                             <div class="col-sm text-right">
-                                                <span>{{ $result->viewPackage->master_office_name }}</span>
+                                                <span>{{ $viewPackage->master_office_name }}</span>
                                             </div>
                                         </div>
                                     </div>
@@ -65,7 +83,7 @@
                                                 <span class="text-sm text-sm-bold">Waktu Keberangkatan</span>
                                             </div>
                                             <div class="col-sm text-right">
-                                                <span>{{ getDateIndo($result->viewPackage->basic_package_depature_date) }}</span>
+                                                <span>{{ getDateIndo($viewPackage->basic_package_depature_date) }}</span>
                                             </div>
                                         </div>
                                     </div>

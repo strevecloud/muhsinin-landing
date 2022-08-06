@@ -25,6 +25,11 @@ class PackageBookingRepository
         return PackageBookings::where('booking_code','=',$code)->with('paymentType')->with('viewPackage')->with('bookingDetail')->first();
     }
 
+    public function getByCodeViewPackageAll($code)
+    {
+        return PackageBookings::where('booking_code','=',$code)->with('paymentType')->with('viewPackageAll')->with('bookingDetail')->first();
+    }
+
     public function getDetailByPackageBookingId($id)
     {
         return PackageBookingDetails::where('package_booking_id','=',$id)->where('is_leader','=',true)->first();
@@ -37,7 +42,7 @@ class PackageBookingRepository
 
     public function getBookingByPhoneNumber($phoneNumber)
     {
-        return PackageBookings::with('bookingDetail')->with('viewPackage')->whereRelation('bookingDetail','phone_number','=',$phoneNumber)->get();
+        return PackageBookings::with('bookingDetail')->with('viewPackageAll')->whereRelation('bookingDetail','phone_number','=',$phoneNumber)->get();
     }
 
     public function getDetailByNikNumber($nikNumber)

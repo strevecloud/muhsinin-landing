@@ -3,6 +3,7 @@
 namespace App\Repositories;
 
 use App\Models\ViewPackages;
+use App\Models\ViewPackageAll;
 use \Carbon\Carbon;
 
 class ViewPackagesRepository
@@ -24,6 +25,7 @@ class ViewPackagesRepository
         if($request->input('brc')){
             $data = $data->where('branch_package_id','=',$request->input('brc'));
         }
+        $data = $data->orderBy('master_room_value');
         $data = $data->simplePaginate(6)->withQueryString();
 
 
@@ -37,7 +39,7 @@ class ViewPackagesRepository
 
     public function getByBranchPackageDetailId($id)
     {
-        return ViewPackages::where('branch_package_detail_id','=',$id)->firstOrFail();
+        return ViewPackageAll::where('branch_package_detail_id','=',$id)->firstOrFail();
     }
 
     public function filterSearch($request){
@@ -63,6 +65,7 @@ class ViewPackagesRepository
             $query->where('branch_package_id','=',$request->input('brc'));
         }
         $query->select('*');
+        $query->orderBy('master_room_value');
 //        dd($query->toSql());
 //            ->whereBetween('basic_package_depature_date',[ $request->input('departure_date'), $request->input('departure_date')])
         $query->simplePaginate(6)->withQueryString();

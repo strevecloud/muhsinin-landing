@@ -39,6 +39,9 @@ class PackageController extends Controller
         }else{
             $packages = $this->viewPackagesRepository->getAllByRequest($request);
         }
+        if(count($packages) == 0){
+            return view('errors.404');
+        }
 
         $rooms = $this->roomRepository->masterRoomAll();
         $offices = $this->officeRepository->masterOfficeAll();
