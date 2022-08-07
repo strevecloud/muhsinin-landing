@@ -34,11 +34,14 @@ class FrontendController extends Controller
         }else{
             $packages = $this->viewPackagesRepository->getAllIndex();
         }
+        $listBranchPackage = collect($packages->items())->pluck('branch_package_id')->all();
+        $minPriceList = $this->viewPackagesRepository->getAllPriceByBranchPackage($listBranchPackage);
+
 //        dd($req);
         $rooms = $this->roomRepository->masterRoomAll();
         $offices = $this->officeRepository->masterOfficeAll();
         $packageDetails = $this->officeRepository->masterOfficeAll();
-        return view('frontend/index',compact('rooms','offices','packageDetails','packages'));
+        return view('frontend/index',compact('rooms','offices','packageDetails','packages','minPriceList'));
     }
 
     public function home(Request $request)
