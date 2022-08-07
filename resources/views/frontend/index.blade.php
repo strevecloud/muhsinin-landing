@@ -8,7 +8,7 @@
             <div class="section-heading text-center">
                 <div class="row">
                     <div class="col-lg-8 offset-lg-2">
-                        <h2>Hadist Rasul</h2>
+                        <h2>Spirit Ihsan</h2>
                     </div>
                 </div>
             </div>
