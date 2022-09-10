@@ -863,6 +863,19 @@ if (! function_exists('image_thumbnail')) {
     }
 }
 
+if (! function_exists('compareDate')) {
+    /**
+     * Generate new datetime from configured format datetime.
+     *
+     * @param  string $datetime
+     * @return string
+     */
+    function compareDate($start,$end)
+    {
+        return $end > $start ;
+    }
+}
+
 if (! function_exists('myDatetime')) {
     /**
      * Generate new datetime from configured format datetime.

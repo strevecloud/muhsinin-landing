@@ -72,9 +72,15 @@
                                     {{--</div>--}}
                                     <div class="col-sm-12 text-center">
                                         <div class="form-group submit-btn">
-                                            <div class="text-center">
-                                                <a href="{{ route('booking.show',[$pack->branch_package_detail_id]) }}" class="button-primary pull-right"> <i class="fa fa-book fa-lg"></i> Booking</a>
-                                            </div>
+                                            @if(!compareDate($pack->basic_package_end_period,now()))
+                                                <div class="text-center">
+                                                    <a href="{{ route('booking.show',[$pack->branch_package_detail_id]) }}" class="button-primary pull-right"> <i class="fa fa-book fa-lg"></i> Booking</a>
+                                                </div>
+                                            @else
+                                                <div class="text-center">
+                                                    <span class="btn btn-secondary pull-right"> <i class="fa fa-book fa-lg"></i> Booking</span>
+                                                </div>
+                                            @endif
                                         </div>
                                     </div>
                                 </div>
